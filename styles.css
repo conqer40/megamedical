@@ -3853,4 +3853,50 @@ body :not(.master-footer):not(.btn-primary-neon):not(.btn-nav-calc):not(.btn-sli
   font-weight: 600;
 }
 
+/* ==========================================================================
+   Signature MegaMedical Brand Typography (Matching Official Logo)
+   ========================================================================== */
+.brand-megamedical {
+  display: inline-block;
+  font-family: 'Outfit', var(--font-display), sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  line-height: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+.brand-megamedical .brand-mega {
+  color: #0b1a30;
+  font-weight: 900;
+  transition: color var(--transition-fast);
+}
+
+.brand-megamedical .brand-medical {
+  background: linear-gradient(180deg, #38bdf8 0%, #009dfc 45%, #026aa2 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 1px 2px rgba(2, 132, 199, 0.35));
+  display: inline-block;
+  font-weight: 900;
+  padding-right: 1px;
+}
+
+/* On dark backgrounds (e.g. Master Footer, Dark Cards, Sliders) */
+.master-footer .brand-megamedical .brand-mega,
+.dark-card .brand-megamedical .brand-mega,
+.slide-body-info .brand-megamedical .brand-mega,
+.btn-primary-neon .brand-megamedical .brand-mega,
+.btn-banner-action-pdf .brand-megamedical .brand-mega,
+.btn-banner-action-wa .brand-megamedical .brand-mega,
+[data-theme="dark"] .brand-megamedical .brand-mega {
+  background: linear-gradient(180deg, #ffffff 20%, #e2e8f0 60%, #cbd5e1 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #ffffff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
+
 

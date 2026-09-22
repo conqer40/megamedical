@@ -236,4 +236,64 @@ document.addEventListener('DOMContentLoaded', () => {
       navbar?.classList.remove('scrolled');
     }
   });
+
+  // Apply Signature MegaMedical Brand Styling to all text occurrences
+  applyBrandStyling();
 });
+
+/* ==========================================================================
+   AUTOMATIC BRAND TYPOGRAPHY ENHANCEMENT
+   Transforms text mentions of "MegaMedical" to match the official logo styling
+   ========================================================================== */
+function applyBrandStyling(root = document.body) {
+  if (!root) return;
+  const walker = document.createTreeWalker(
+    root,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        if (!node.nodeValue || !node.nodeValue.includes('MegaMedical')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        const tag = parent.tagName.toLowerCase();
+        if (['script', 'style', 'textarea', 'input', 'select', 'title', 'meta', 'option'].includes(tag)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        if (parent.closest('.brand-megamedical, .brand-main-logo, .footer-logo-img, img')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+
+  const textNodes = [];
+  while (walker.nextNode()) {
+    textNodes.push(walker.currentNode);
+  }
+
+  textNodes.forEach(node => {
+    const parent = node.parentNode;
+    if (!parent) return;
+    const text = node.nodeValue;
+    const parts = text.split(/(MegaMedical)/g);
+    if (parts.length <= 1) return;
+
+    const frag = document.createDocumentFragment();
+    parts.forEach(part => {
+      if (part === 'MegaMedical') {
+        const brand = document.createElement('span');
+        brand.className = 'brand-megamedical';
+        brand.innerHTML = '<span class="brand-mega">Mega</span><span class="brand-medical">Medical</span>';
+        frag.appendChild(brand);
+      } else if (part.length > 0) {
+        frag.appendChild(document.createTextNode(part));
+      }
+    });
+    parent.replaceChild(frag, node);
+  });
+}
+window.applyBrandStyling = applyBrandStyling;
+

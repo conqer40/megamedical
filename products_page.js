@@ -330,6 +330,10 @@ function openProductModal(productId) {
     </div>
   `;
 
+  if (window.applyBrandStyling) {
+    window.applyBrandStyling(modalBody);
+  }
+
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
