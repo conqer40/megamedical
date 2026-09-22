@@ -91,8 +91,8 @@
 
           <!-- Left Column: Container Type & Carton Steppers -->
           <div class="calc-glass-box">
-            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
-              <span style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan)); color: #030712; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">1</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #0b1a30; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+              <span style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan)); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">1</span>
               <span>Select Shipping Container Standard</span>
             </h3>
 
@@ -100,22 +100,22 @@
               <div class="container-select-card selected" id="radio-fcl20" onclick="handleContainerChange('fcl20')">
                 <div style="font-size: 2rem;">📦</div>
                 <div>
-                  <div style="font-family: var(--font-display); font-weight: 800; color: #fff; font-size: 1.05rem;">20ft Standard FCL</div>
-                  <div style="font-size: 0.8rem; color: var(--text-muted);">Usable Volume ~ 28 CBM · Max Gross 18 T</div>
+                  <div style="font-family: var(--font-display); font-weight: 800; color: #0b1a30; font-size: 1.05rem;">20ft Standard FCL</div>
+                  <div style="font-size: 0.8rem; color: #475569;">Usable Volume ~ 28 CBM · Max Gross 18 T</div>
                 </div>
               </div>
 
               <div class="container-select-card" id="radio-fcl40" onclick="handleContainerChange('fcl40')">
                 <div style="font-size: 2rem;">🚢</div>
                 <div>
-                  <div style="font-family: var(--font-display); font-weight: 800; color: #fff; font-size: 1.05rem;">40ft High-Cube (HQ)</div>
-                  <div style="font-size: 0.8rem; color: var(--text-muted);">Usable Volume ~ 65 CBM · Max Gross 26 T</div>
+                  <div style="font-family: var(--font-display); font-weight: 800; color: #0b1a30; font-size: 1.05rem;">40ft High-Cube (HQ)</div>
+                  <div style="font-size: 0.8rem; color: #475569;">Usable Volume ~ 65 CBM · Max Gross 26 T</div>
                 </div>
               </div>
             </div>
 
-            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
-              <span style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan)); color: #030712; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">2</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #0b1a30; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+              <span style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan)); color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">2</span>
               <span>Specify Carton Quantities for Mixed Load</span>
             </h3>
 
@@ -127,7 +127,7 @@
 
           <!-- Right Column: Interactive 3D Canvas Stage & Analysis -->
           <div class="calc-glass-box calc-summary-sticky">
-            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 16px;">
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #0b1a30; margin-bottom: 16px;">
               Live 3D Container Stacking
             </h3>
 
@@ -140,13 +140,13 @@
             <!-- Volume Capacity Meter -->
             <div style="margin-bottom: 20px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <span style="font-size: 0.9rem; font-weight: 700; color: #fff;">Volume Fill Ratio:</span>
-                <span id="calc-capacity-num" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: var(--neon-cyan);">0%</span>
+                <span style="font-size: 0.9rem; font-weight: 700; color: #0b1a30;">Volume Fill Ratio:</span>
+                <span id="calc-capacity-num" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: var(--electric-blue);">0%</span>
               </div>
               <div class="meter-capacity-track">
                 <div class="meter-capacity-fill" id="calc-capacity-bar"></div>
               </div>
-              <div id="calc-capacity-status" style="font-size: 0.8rem; margin-top: 8px; color: var(--text-muted);">
+              <div id="calc-capacity-status" style="font-size: 0.8rem; margin-top: 8px; color: #475569;">
                 Container is empty — Add cartons to calculate load.
               </div>
             </div>
@@ -378,7 +378,7 @@
         previewList.innerHTML = activeIds.map(id => {
           const item = productsData.find(p => p.id == id);
           return `
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding: 6px 10px; background: rgba(5, 11, 23, 0.6); border-radius: 6px; margin-bottom: 6px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding: 8px 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 6px; color: #0b1a30;">
               <span><strong>${item.code}:</strong> ${item.name}</span>
               <span style="color: var(--salhy-orange); font-weight: 800;">${cart[id]} Cartons</span>
             </div>
