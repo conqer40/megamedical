@@ -92,53 +92,10 @@ function updateNavCartBadge() {
 }
 
 /* ==========================================================================
-   CUSTOM GLOWING CURSOR WITH FLUID TRAIL
+   CUSTOM GLOWING CURSOR (Disabled per user preference)
    ========================================================================== */
 function initCustomCursor() {
-  if (window.innerWidth < 992) return; // Only on desktop
-  
-  const dot = document.createElement('div');
-  dot.className = 'custom-cursor-dot';
-  document.body.appendChild(dot);
-
-  const trail = document.createElement('div');
-  trail.className = 'custom-cursor-trail';
-  document.body.appendChild(trail);
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let trailX = mouseX;
-  let trailY = mouseY;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    dot.style.left = `${mouseX}px`;
-    dot.style.top = `${mouseY}px`;
-  });
-
-  function renderTrail() {
-    trailX += (mouseX - trailX) * 0.18;
-    trailY += (mouseY - trailY) * 0.18;
-    trail.style.left = `${trailX}px`;
-    trail.style.top = `${trailY}px`;
-    requestAnimationFrame(renderTrail);
-  }
-  renderTrail();
-
-  // Expand trail when hovering over buttons, cards, or links
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('a, button, input, select, textarea, .product-tilt-card, .container-select-card')) {
-      document.body.classList.add('cursor-hover');
-      playUiSound('hover');
-    }
-  });
-
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest('a, button, input, select, textarea, .product-tilt-card, .container-select-card')) {
-      document.body.classList.remove('cursor-hover');
-    }
-  });
+  return;
 }
 
 /* ==========================================================================
@@ -240,7 +197,6 @@ function initTiltEffect() {
    INITIALIZATION
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-  initCustomCursor();
   initAmbientCanvas();
   initTiltEffect();
   updateNavCartBadge();

@@ -110,38 +110,10 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
   opacity: 0.7;
 }
 
-/* Custom Cursor */
-.custom-cursor-dot {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: var(--neon-cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s, transform 0.1s;
-  box-shadow: 0 0 10px var(--neon-cyan);
-}
-
+/* Custom Cursor Circle - Disabled per user preference */
+.custom-cursor-dot,
 .custom-cursor-trail {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid var(--neon-cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, border-color 0.2s, opacity 0.2s;
-  opacity: 0.6;
-}
-
-.cursor-hover .custom-cursor-trail {
-  width: 54px;
-  height: 54px;
-  border-color: var(--salhy-orange);
-  background: rgba(255, 119, 0, 0.08);
+  display: none !important;
 }
 
 /* App Master Layout */
@@ -339,18 +311,18 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .brand-main-logo {
-  height: 84px;
+  height: 104px;
   width: auto;
-  max-width: 280px;
+  max-width: 330px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 242, 254, 0.45));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15)) drop-shadow(0 0 12px rgba(0, 242, 254, 0.35));
   transition: var(--transition-smooth);
   display: block;
 }
 
 .brand-main-logo:hover {
-  transform: scale(1.04);
-  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 22px rgba(0, 242, 254, 0.8));
+  transform: scale(1.03);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.2)) drop-shadow(0 0 20px rgba(0, 242, 254, 0.6));
 }
 
 .brand-divider {
@@ -1412,54 +1384,62 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
   width: 100%;
   display: flex;
   align-items: center;
+  background: #ffffff !important;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(11, 26, 48, 0.05);
 }
 
 .catalog-search-box svg {
   position: absolute;
   left: 18px;
   pointer-events: none;
+  stroke: #0284c7 !important;
 }
 
 .search-input-field {
   width: 100%;
-  background: rgba(8, 20, 39, 0.75);
-  border: 1px solid var(--border-neon);
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
   border-radius: 14px;
   padding: 16px 50px 16px 54px;
-  color: #ffffff;
+  color: #0b1a30 !important;
   font-size: 1rem;
   font-family: var(--font-body);
   outline: none;
-  backdrop-filter: blur(12px);
   transition: var(--transition-fast);
 }
 
+.search-input-field::placeholder {
+  color: #94a3b8 !important;
+}
+
 .search-input-field:focus {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 20px var(--neon-cyan-glow);
-  background: rgba(8, 20, 39, 0.95);
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15), 0 8px 25px rgba(2, 132, 199, 0.08) !important;
+  background: #ffffff !important;
 }
 
 .btn-clear-search {
   position: absolute;
   right: 18px;
-  background: rgba(255, 255, 255, 0.12);
+  background: #e2e8f0 !important;
   border: none;
-  color: var(--text-muted);
-  width: 26px;
-  height: 26px;
+  color: #475569 !important;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
   font-size: 0.85rem;
+  font-weight: 700;
   transition: var(--transition-fast);
 }
 
 .btn-clear-search:hover {
-  background: var(--salhy-orange);
-  color: #ffffff;
+  background: #dc2626 !important;
+  color: #ffffff !important;
 }
 
 .catalog-toolbar-bottom {
@@ -3818,4 +3798,59 @@ body :not(.master-footer):not(.btn-primary-neon):not(.btn-nav-calc):not(.btn-sli
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   Footer El Salhy Group Link & Logo
+   ========================================================================== */
+.footer-salhy-link {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  margin-top: 8px;
+}
+
+.footer-salhy-link:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: var(--salhy-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 119, 0, 0.2);
+}
+
+.footer-salhy-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+  display: block;
+}
+
+.footer-salhy-link:hover .footer-salhy-logo {
+  transform: scale(1.06);
+}
+
+.footer-salhy-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-salhy-badge {
+  font-size: 0.82rem;
+  color: var(--salhy-orange) !important;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.footer-salhy-sub {
+  font-size: 0.72rem;
+  color: #94a3b8 !important;
+  font-weight: 600;
+}
+
 
