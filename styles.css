@@ -601,15 +601,88 @@ body {
 }
 
 .hero-3d-featured-card {
-  background: linear-gradient(160deg, rgba(16, 35, 70, 0.85) 0%, rgba(5, 11, 23, 0.95) 100%);
-  border: 1px solid var(--border-neon-strong);
+  background: rgba(6, 18, 38, 0.5);
+  border: 1px solid rgba(0, 242, 254, 0.28);
   border-radius: var(--radius-xl);
-  padding: 24px;
-  box-shadow: var(--shadow-deep), var(--shadow-neon);
-  backdrop-filter: blur(24px);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  padding: 26px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.15);
+  backdrop-filter: blur(16px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   position: relative;
   overflow: hidden;
+}
+
+.hero-3d-featured-card:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 242, 254, 0.3);
+}
+
+.telemetry-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.telemetry-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neon-cyan);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.pulse-live-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse-ring 1.5s infinite;
+}
+
+.telemetry-chip-code {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--salhy-orange);
+  background: rgba(255, 119, 0, 0.12);
+  border: 1px solid rgba(255, 119, 0, 0.3);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.telemetry-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.telemetry-metric-box {
+  background: rgba(3, 10, 24, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-box-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.metric-box-val {
+  font-size: 0.88rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .globe-stage-header {
