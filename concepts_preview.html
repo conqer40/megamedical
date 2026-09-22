@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MegaMedical - 3D Hero Animation Concepts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #030a16;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 40px 20px;
+    }
+    .concepts-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-box {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .header-box h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .header-box p {
+      color: var(--neon-cyan);
+      font-size: 1.1rem;
+    }
+    .concept-card {
+      background: rgba(8, 20, 39, 0.85);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 50px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .concept-card:hover {
+      border-color: var(--neon-cyan);
+      transform: translateY(-4px);
+    }
+    .concept-img {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+    }
+    .concept-content {
+      padding: 30px 40px;
+    }
+    .concept-badge {
+      display: inline-block;
+      background: rgba(0, 242, 254, 0.15);
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .concept-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .concept-desc {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .concept-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 15px;
+    }
+    .feature-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      color: #94a3b8;
+    }
+    .feature-item strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--neon-cyan);
+      text-decoration: none;
+      font-weight: 700;
+      margin-bottom: 30px;
+      background: rgba(0, 242, 254, 0.1);
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="concepts-container">
+    <a href="index.html" class="back-btn">← Back to MegaMedical Homepage</a>
+
+    <div class="header-box">
+      <h1>3D Hero Animation Concepts for MegaMedical</h1>
+      <p>Compare the 3 visual options below to replace the DNA animation</p>
+    </div>
+
+    <!-- Concept 1 -->
+    <div class="concept-card" id="concept-1">
+      <img src="assets/concepts/concept_1_globe.jpg" alt="Concept 1: Global Logistics 3D Globe" class="concept-img">
+      <div class="concept-content">
+        <span class="concept-badge">Concept 01 · Highly Recommended</span>
+        <h2 class="concept-title">Global Logistics Holographic 3D Globe (الكرة الأرضية التفاعلية لشبكات التصدير)</h2>
+        <p class="concept-desc">
+          كرة أرضية تفاعلية ثلاثية الأبعاد هولوجرامية تدور مع حركة الماوس، ينبثق من مصر خطوط وأقواس ملاحية مضيئة (Pulsing Shipping Arcs) تتجه نحو قارات وموانئ العالم، مع جزيئات عائمة ونقاط شحن حية تحاكي تصدير الحاويات والمستلزمات الطبية.
+        </p>
+        <div class="concept-features">
+          <div class="feature-item">
+            <strong>360° Interactive Orbit</strong>
+            تتفاعل الكرة مع حركة الماوس وتدور بسلاسة في جميع الاتجاهات.
+          </div>
+          <div class="feature-item">
+            <strong>Pulsing Global Trade Arcs</strong>
+            أقواس ضوئية نيونية متحركة تخرج من موانئ مصر متجهة للعالم.
+          </div>
+          <div class="feature-item">
+            <strong>Global Exporter Identity</strong>
+            يعكس فوراً حجم وقوة الشركة كمصدر طبي دولي يغطي 40+ دولة.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concept 2 -->
+    <div class="concept-card" id="concept-2">
+      <img src="assets/concepts/concept_2_syringe.jpg" alt="Concept 2: Cyber-Medical Exploded Tech View" class="concept-img">
+      <div class="concept-content">
+        <span class="concept-badge">Concept 02 · Engineering & Cleanroom</span>
+        <h2 class="concept-title">Cyber-Medical Exploded Tech View (المجسم الطبي الهندسي المتفكك تفاعلياً)</h2>
+        <p class="concept-desc">
+          مجسم 3D كريستالي لسرنجة ومستلزمات طبية معقمة تطفو في الفضاء، وتتفكك هندسياً (Exploded View) بنعومة عند حركة الماوس مع مسح ليزري رقمي ومؤشرات جودة ومقاييس ISO Class 7/8 Cleanrooms.
+        </p>
+        <div class="concept-features">
+          <div class="feature-item">
+            <strong>Exploded View Animation</strong>
+            انفصال أجزاء السرنجة والمكبس وسن الإبرة بنعومة فائقة.
+          </div>
+          <div class="feature-item">
+            <strong>Cyber Laser Scanner</strong>
+            خطوط مسح ليزرية ومؤشرات ميكرونية تحاكي فحص الجودة المعقمة.
+          </div>
+          <div class="feature-item">
+            <strong>Precision Manufacturing</strong>
+            يبرز دقة التصنيع الهندسي للمصانع والغرف النظيفة.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Concept 3 -->
+    <div class="concept-card" id="concept-3">
+      <img src="assets/concepts/concept_3_wave.jpg" alt="Concept 3: Bio-Pulse Sterile Wave Lattice" class="concept-img">
+      <div class="concept-content">
+        <span class="concept-badge">Concept 03 · Smooth Organic Motion</span>
+        <h2 class="concept-title">Bio-Pulse Sterile Wave Lattice (موجات الحماية الحيوية المعقمة ونبض القلب)</h2>
+        <p class="concept-desc">
+          شبكة طاقة ثلاثية الأبعاد انسيابية كالحرير تتموج مع خط نبضات القلب الحيوي (ECG Pulse) بلون السيان والأزرق الساطع، تعطي إحساساً بالتعقيم والرقي الطبي الفائق مع خفة حركة فائقة السرعة على جميع الشاشات.
+        </p>
+        <div class="concept-features">
+          <div class="feature-item">
+            <strong>Fluid Silk Wave</strong>
+            تموجات ثلاثية الأبعاد حريرية ناعمة تتفاعل مع حركة الماوس.
+          </div>
+          <div class="feature-item">
+            <strong>ECG Heartbeat Pulse</strong>
+            نبضات حيوية متوهجة تتدفق عبر شريط النيون.
+          </div>
+          <div class="feature-item">
+            <strong>Ultra Lightweight 60fps</strong>
+            أداء حركي ناعم جداً وخفيف ولا يشتت عن القراءة.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
