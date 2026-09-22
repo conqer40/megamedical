@@ -75,11 +75,8 @@
       </div>
     </header>
 
-    <!-- Interactive Three.js 3D Hero Section -->
+    <!-- Modern Hero Showcase Section (Lightweight & High Performance) -->
     <section class="home-hero-section">
-      <!-- 3D DNA Canvas is injected here -->
-      <div id="hero-3d-canvas-container" class="hero-3d-canvas-container"></div>
-
       <div class="home-hero-grid">
         <div class="hero-text-block">
           <div class="badge-tag-cyan" style="width: fit-content;">
@@ -124,98 +121,160 @@
           </div>
         </div>
 
-        <!-- 3D Interactive Cleanroom Pod Showcase (Option C) -->
-        <div class="hero-glass-card-wrap" id="hero-pod-card-wrap">
-          <div class="hero-floating-badge badge-corner-top">
-            <div class="badge-round-icon badge-round-cyan">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div>
-              <div style="font-size: 0.85rem; font-weight: 800; color: #fff;">SAL 10⁻⁶ Certified</div>
-              <div style="font-size: 0.72rem; color: var(--neon-cyan);">100% EO Gas &amp; UV-C Validated</div>
-            </div>
-          </div>
+        <!-- Modern Interactive Hero Showcase Slider -->
+        <div class="hero-showcase-slider-wrap">
+          <div class="hero-slider-box" id="hero-slider-box">
+            
+            <!-- Slides Track -->
+            <div class="hero-slides-wrapper" id="hero-slides-wrapper">
+              
+              <!-- Slide 1: Hospital Consumables & Syringes -->
+              <div class="hero-slide-item active" data-index="0">
+                <div class="slide-media-frame">
+                  <img src="assets/concepts/hero_opt_1_products.jpg" alt="MegaMedical Hospital Consumables &amp; Syringes" class="slide-media-img" loading="eager">
+                  <div class="slide-glass-vignette"></div>
+                  <div class="slide-floating-tag">
+                    <span class="pulse-dot-green"></span>
+                    <span>STERILE MEDICAL CONSUMABLES</span>
+                  </div>
+                </div>
+                <div class="slide-body-info">
+                  <div class="slide-category-line">
+                    <span class="slide-cat-badge">SURGICAL &amp; INJECTION</span>
+                    <span class="slide-spec-code">LINE MM-01 · 2026</span>
+                  </div>
+                  <h3 class="slide-headline">Precision Syringes, Cannulas &amp; Infusion Sets</h3>
+                  <p class="slide-description">Engineered in ISO Class 7 certified cleanrooms with 100% EO gas sterilization. Non-toxic, pyrogen-free medical grade polypropylene with crystal clarity.</p>
+                  <div class="slide-features-row">
+                    <span class="slide-feat-badge">CE &amp; ISO 13485</span>
+                    <span class="slide-feat-badge">0.5ml — 50ml</span>
+                    <span class="slide-feat-badge">Ultra-Sharp Needle</span>
+                  </div>
+                  <div class="slide-action-toolbar">
+                    <a href="products.html" class="btn-slide-explore">
+                      <span>Browse Products</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <span class="slide-step-indicator">01 / 03</span>
+                  </div>
+                </div>
+              </div>
 
-          <div class="hero-3d-featured-card cleanroom-pod-card">
-            <!-- Glass Telemetry Header -->
-            <div class="telemetry-card-header">
-              <div class="telemetry-live-badge">
-                <span class="pulse-live-indicator"></span>
-                <span>CLEANROOM POD #01 · STERILE SCAN</span>
+              <!-- Slide 2: FCL Container Logistics & Export -->
+              <div class="hero-slide-item" data-index="1">
+                <div class="slide-media-frame">
+                  <img src="assets/concepts/hero_opt_2_container.jpg" alt="Maritime Export &amp; FCL Container Logistics" class="slide-media-img" loading="lazy">
+                  <div class="slide-glass-vignette"></div>
+                  <div class="slide-floating-tag tag-orange">
+                    <span class="pulse-dot-orange"></span>
+                    <span>GLOBAL MARITIME EXPORT</span>
+                  </div>
+                </div>
+                <div class="slide-body-info">
+                  <div class="slide-category-line">
+                    <span class="slide-cat-badge cat-orange">FCL MIX LOAD LOGISTICS</span>
+                    <span class="slide-spec-code code-orange">40FT HIGH-CUBE</span>
+                  </div>
+                  <h3 class="slide-headline">One-Stop Container Consolidation for Tenders</h3>
+                  <p class="slide-description">Consolidate up to 20 hospital consumable categories in a single 65+ CBM maritime container directly shipped from Sokhna &amp; Alexandria seaports worldwide.</p>
+                  <div class="slide-features-row">
+                    <span class="slide-feat-badge">65+ CBM Capacity</span>
+                    <span class="slide-feat-badge">COMESA &amp; MENA Duty-Free</span>
+                    <span class="slide-feat-badge">40+ Seaports</span>
+                  </div>
+                  <div class="slide-action-toolbar">
+                    <a href="calculator.html" class="btn-slide-explore btn-slide-orange">
+                      <span>Simulate Container</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <span class="slide-step-indicator">02 / 03</span>
+                  </div>
+                </div>
               </div>
-              <span class="telemetry-chip-code">ISO 13485:2016</span>
+
+              <!-- Slide 3: Cleanroom Quality & Sterilization Assurance -->
+              <div class="hero-slide-item" data-index="2">
+                <div class="slide-media-frame">
+                  <img src="assets/concepts/hero_opt_3_pod.jpg" alt="Cleanroom Sterilization &amp; Quality Control" class="slide-media-img" loading="lazy">
+                  <div class="slide-glass-vignette"></div>
+                  <div class="slide-floating-tag">
+                    <span class="pulse-dot-green"></span>
+                    <span>ZERO-DEFECT PROTOCOL</span>
+                  </div>
+                </div>
+                <div class="slide-body-info">
+                  <div class="slide-category-line">
+                    <span class="slide-cat-badge">STERILITY ASSURANCE</span>
+                    <span class="slide-spec-code">SAL 10⁻⁶ CERTIFIED</span>
+                  </div>
+                  <h3 class="slide-headline">Cleanroom Quality Assurance &amp; EO Sterilization</h3>
+                  <p class="slide-description">100% ethylene oxide sterilization cycles with biological indicators and automated optical inspection for zero-defect clinical dependability.</p>
+                  <div class="slide-features-row">
+                    <span class="slide-feat-badge">SAL 10⁻⁶ Validated</span>
+                    <span class="slide-feat-badge">ISO Class 7 Standards</span>
+                    <span class="slide-feat-badge">Full Batch Traceability</span>
+                  </div>
+                  <div class="slide-action-toolbar">
+                    <a href="about.html" class="btn-slide-explore">
+                      <span>Why MegaMedical</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <span class="slide-step-indicator">03 / 03</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            <!-- 3D WebGL Cleanroom Pod Viewport -->
-            <div class="hero-cleanroom-pod-stage" id="cleanroom-pod-stage">
-              <canvas id="cleanroom-pod-canvas"></canvas>
-              <div class="pod-hud-overlay">
-                <div class="pod-hud-corner pod-hud-tl">SCAN: 405nm UV-C</div>
-                <div class="pod-hud-corner pod-hud-tr">ATMOS: ISO CLASS 7</div>
-                <div class="pod-hud-corner pod-hud-bl">PRESSURE: 101.3 kPa</div>
-                <div class="pod-hud-corner pod-hud-br">BIO-BURDEN: 0.00 PPM</div>
-                <div class="pod-laser-scan-line"></div>
-              </div>
-              <div class="pod-interaction-hint">
-                <span>🖱️ Drag to Orbit · Hover to Tilt</span>
-              </div>
-            </div>
-
-            <!-- Telemetry Metrics Grid -->
-            <div class="telemetry-metrics-grid pod-metrics-grid">
-              <div class="telemetry-metric-box">
-                <span class="metric-box-label">Sterilization Method</span>
-                <span class="metric-box-val">100% EO Gas Validated</span>
-              </div>
-              <div class="telemetry-metric-box">
-                <span class="metric-box-label">Sterility Assurance</span>
-                <span class="metric-box-val">SAL 10⁻⁶ [Certified]</span>
-              </div>
-              <div class="telemetry-metric-box">
-                <span class="metric-box-label">Cleanroom Standard</span>
-                <span class="metric-box-val">ISO Class 7 &amp; Class 8</span>
-              </div>
-              <div class="telemetry-metric-box">
-                <span class="metric-box-label">Active Chamber Sensor</span>
-                <span class="metric-box-val" id="pod-sensor-readout">0.00 PPM / Sterile</span>
-              </div>
-            </div>
-
-            <!-- Pod Interactive Controls Bar -->
-            <div class="pod-actions-bar">
-              <button class="btn-pulse-sterilize" id="btn-trigger-pulse">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                <span>Trigger Sterilization Pulse</span>
+            <!-- Slider Navigation Footer -->
+            <div class="slider-controls-footer">
+              <button class="slider-arrow-btn" id="slider-prev-btn" aria-label="Previous Slide">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
               </button>
-              <div class="pod-status-pill">
-                <span class="pulse-live-indicator" style="background:#00f2fe; box-shadow:0 0 10px #00f2fe;"></span>
-                <span id="pod-cycle-status">Laser Sweep: 99.8%</span>
+
+              <div class="slider-tabs-nav">
+                <button class="slider-tab-dot active" data-target="0">
+                  <span class="tab-dot-line"></span>
+                  <span class="tab-dot-text">01 Consumables</span>
+                </button>
+                <button class="slider-tab-dot" data-target="1">
+                  <span class="tab-dot-line"></span>
+                  <span class="tab-dot-text">02 FCL Logistics</span>
+                </button>
+                <button class="slider-tab-dot" data-target="2">
+                  <span class="tab-dot-line"></span>
+                  <span class="tab-dot-text">03 Quality &amp; QA</span>
+                </button>
               </div>
+
+              <button class="slider-arrow-btn" id="slider-next-btn" aria-label="Next Slide">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
             </div>
 
-            <div class="hero-stats-row">
-              <div class="hero-mini-stat">
-                <span class="stat-counter-value">40+</span>
-                <span class="stat-counter-label">Export Ports</span>
-              </div>
-              <div class="hero-mini-stat">
-                <span class="stat-counter-value">20</span>
-                <span class="stat-counter-label">Core Lines</span>
-              </div>
-              <div class="hero-mini-stat">
-                <span class="stat-counter-value">100%</span>
-                <span class="stat-counter-label">CE / ISO Validated</span>
-              </div>
+            <!-- Auto-play progress bar -->
+            <div class="slider-progress-bar-wrap">
+              <div class="slider-progress-bar-fill" id="slider-progress-fill"></div>
             </div>
           </div>
 
-          <div class="hero-floating-badge badge-corner-bottom">
-            <div class="badge-round-icon badge-round-orange">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <!-- Bottom Live Metrics Strip -->
+          <div class="slider-metrics-strip">
+            <div class="slider-metric-cell">
+              <span class="slider-metric-num">20+</span>
+              <span class="slider-metric-label">Hospital Lines</span>
             </div>
-            <div>
-              <div style="font-size: 0.85rem; font-weight: 800; color: #fff;">Zero-Defect Quality</div>
-              <div style="font-size: 0.72rem; color: var(--salhy-orange);">Automated Optical Inspection</div>
+            <div class="slider-metric-cell">
+              <span class="slider-metric-num">40+</span>
+              <span class="slider-metric-label">Export Ports</span>
+            </div>
+            <div class="slider-metric-cell">
+              <span class="slider-metric-num">65+ CBM</span>
+              <span class="slider-metric-label">FCL Mix Capacity</span>
+            </div>
+            <div class="slider-metric-cell">
+              <span class="slider-metric-num">100%</span>
+              <span class="slider-metric-label">CE / ISO Validated</span>
             </div>
           </div>
         </div>
@@ -333,9 +392,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/three.min.js"></script>
-  <script src="assets/js/gsap.min.js"></script>
   <script src="common.js"></script>
-  <script src="three_hero.js"></script>
+  <script src="assets/js/hero_slider.js"></script>
 </body>
 </html>
