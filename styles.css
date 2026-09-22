@@ -2940,3 +2940,547 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   MEGA MEDICAL — RADIANT CLINICAL CLEANROOM THEME (PREMIUM LIGHT & WHITE)
+   Pure sterile medical atmosphere, luminous daylight background,
+   high-contrast luxury navy typography, and glowing cyan & orange accents.
+   ========================================================================== */
+
+html, body {
+  background-color: #f8fafc !important;
+  background-image: 
+    radial-gradient(circle at 50% 0%, #ffffff 0%, #f1f6fb 45%, #e8f1f8 100%) !important;
+  background-attachment: fixed !important;
+  color: #1e293b !important;
+}
+
+#ambient-canvas {
+  opacity: 0.12 !important;
+  pointer-events: none !important;
+}
+
+/* Header Strip */
+.top-header-strip {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.top-strip-link {
+  color: #475569 !important;
+}
+
+.top-strip-link:hover {
+  color: #0284c7 !important;
+}
+
+.badge-strip-emergency {
+  background: rgba(255, 119, 0, 0.08) !important;
+  border: 1px solid rgba(255, 119, 0, 0.25) !important;
+  color: #ea580c !important;
+}
+
+/* Main Navbar */
+.main-navbar {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
+  box-shadow: 0 4px 20px rgba(11, 26, 48, 0.05) !important;
+}
+
+.main-navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-bottom-color: #cbd5e1 !important;
+  box-shadow: 0 10px 25px rgba(11, 26, 48, 0.08) !important;
+}
+
+.brand-main-logo {
+  filter: drop-shadow(0 4px 10px rgba(11, 26, 48, 0.12)) !important;
+}
+
+.brand-divider {
+  background: #cbd5e1 !important;
+}
+
+.nav-item-link {
+  color: #1e293b !important;
+}
+
+.nav-item-link:hover, .nav-item-link.active {
+  color: #0284c7 !important;
+}
+
+.nav-item-link::after {
+  background: linear-gradient(90deg, #0284c7, #00f2fe) !important;
+}
+
+.btn-nav-calc {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35) !important;
+}
+
+.btn-nav-calc:hover {
+  box-shadow: 0 6px 22px rgba(2, 132, 199, 0.5) !important;
+  color: #ffffff !important;
+}
+
+.nav-mobile-toggle {
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* Hero Section */
+.home-hero-section {
+  background: 
+    radial-gradient(circle at 80% 25%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 15% 85%, rgba(255, 119, 0, 0.05) 0%, transparent 50%),
+    linear-gradient(180deg, #ffffff 0%, #f0f6fc 100%) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.hero-main-title {
+  color: #0b1a30 !important;
+}
+
+.hero-main-title .gradient-cyan {
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none !important;
+}
+
+.hero-main-title .gradient-orange {
+  color: #ea580c !important;
+  text-shadow: none !important;
+}
+
+.hero-lead-para {
+  color: #475569 !important;
+}
+
+.hero-spec-chip {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+  box-shadow: 0 4px 12px rgba(11, 26, 48, 0.04) !important;
+}
+
+.hero-spec-chip:hover {
+  border-color: #0284c7 !important;
+  background: #f0f9ff !important;
+  color: #0284c7 !important;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.15) !important;
+}
+
+.btn-primary-neon {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.35) !important;
+}
+
+.btn-primary-neon:hover {
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.5) !important;
+  color: #ffffff !important;
+}
+
+.btn-secondary-dark {
+  background: #ffffff !important;
+  border: 2px solid #0284c7 !important;
+  color: #0284c7 !important;
+  box-shadow: 0 4px 14px rgba(11, 26, 48, 0.04) !important;
+}
+
+.btn-secondary-dark:hover {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.35) !important;
+}
+
+/* Hero Showcase Slider */
+.hero-slider-box {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  box-shadow: 0 20px 50px rgba(11, 26, 48, 0.08) !important;
+}
+
+.hero-slider-box:hover {
+  border-color: #0284c7 !important;
+  box-shadow: 0 25px 60px rgba(2, 132, 199, 0.15) !important;
+}
+
+.slide-body-info {
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+.slide-headline {
+  color: #0b1a30 !important;
+}
+
+.slide-description {
+  color: #475569 !important;
+}
+
+.slide-spec-code {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+.slide-feat-badge {
+  background: #f0f9ff !important;
+  border: 1px solid #bae6fd !important;
+  color: #0284c7 !important;
+}
+
+.slide-action-toolbar {
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+.slider-controls-footer {
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+.slider-arrow-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+.slider-arrow-btn:hover {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(2, 132, 199, 0.35) !important;
+}
+
+.slider-tab-dot {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #64748b !important;
+}
+
+.slider-tab-dot:hover {
+  color: #0284c7 !important;
+  border-color: #0284c7 !important;
+  background: #f0f9ff !important;
+}
+
+.slider-tab-dot.active {
+  background: #f0f9ff !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.25) !important;
+}
+
+.slider-metric-cell {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(11, 26, 48, 0.04) !important;
+}
+
+.slider-metric-cell:hover {
+  border-color: #0284c7 !important;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.12) !important;
+}
+
+.slider-metric-num {
+  color: #0284c7 !important;
+}
+
+.slider-metric-label {
+  color: #64748b !important;
+}
+
+/* Subpage Hero Banners */
+.subpage-hero {
+  background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.09) 0%, #f8fafc 75%) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.subpage-title {
+  color: #0b1a30 !important;
+}
+
+.subpage-subtitle {
+  color: #475569 !important;
+}
+
+.badge-tag-cyan {
+  background: #f0f9ff !important;
+  border-color: #bae6fd !important;
+  color: #0284c7 !important;
+}
+
+/* Products Catalogue & Grid */
+.catalog-search-box {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 15px rgba(11, 26, 48, 0.04) !important;
+}
+
+.search-input-field {
+  color: #0b1a30 !important;
+}
+
+.search-input-field::placeholder {
+  color: #94a3b8 !important;
+}
+
+.category-tab-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+.category-tab-btn:hover {
+  background: #f0f9ff !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
+.category-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+.product-matrix-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 25px rgba(11, 26, 48, 0.05) !important;
+}
+
+.product-matrix-card:hover {
+  border-color: #0284c7 !important;
+  box-shadow: 0 14px 35px rgba(2, 132, 199, 0.15) !important;
+}
+
+.product-title {
+  color: #0b1a30 !important;
+}
+
+.product-spec-row {
+  color: #475569 !important;
+}
+
+.product-card-badge {
+  background: #f0f9ff !important;
+  border: 1px solid #bae6fd !important;
+  color: #0284c7 !important;
+}
+
+/* 3D Container Calculator */
+.calc-glass-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 30px rgba(11, 26, 48, 0.06) !important;
+}
+
+.calc-section-title {
+  color: #0b1a30 !important;
+}
+
+.calc-type-radio {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+.calc-type-radio.selected {
+  background: #f0f9ff !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2) !important;
+}
+
+.calc-stat-cell {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.stat-cell-val {
+  color: #0b1a30 !important;
+}
+
+.stat-cell-label {
+  color: #64748b !important;
+}
+
+#container-3d-stage {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e2eef9 100%) !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 16px !important;
+}
+
+/* Stepper Controls */
+.stepper-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0b1a30 !important;
+}
+
+.stepper-btn:hover {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #0284c7 !important;
+}
+
+.stepper-val {
+  color: #0b1a30 !important;
+}
+
+/* Subsidiaries & Heritage Cards */
+.subsidiary-neon-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 25px rgba(11, 26, 48, 0.05) !important;
+}
+
+.subsidiary-neon-card:hover {
+  border-color: #ea580c !important;
+  box-shadow: 0 15px 35px rgba(234, 88, 12, 0.15) !important;
+}
+
+.subsidiary-name {
+  color: #0b1a30 !important;
+}
+
+.subsidiary-desc {
+  color: #475569 !important;
+}
+
+.timeline-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 25px rgba(11, 26, 48, 0.05) !important;
+}
+
+.timeline-year {
+  color: #ea580c !important;
+}
+
+.timeline-title {
+  color: #0b1a30 !important;
+}
+
+.timeline-desc {
+  color: #475569 !important;
+}
+
+/* Terms & Export Page */
+.term-glass-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 25px rgba(11, 26, 48, 0.05) !important;
+}
+
+.term-glass-card:hover {
+  border-color: #0284c7 !important;
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15) !important;
+}
+
+.term-card-title {
+  color: #0b1a30 !important;
+}
+
+.term-card-list li {
+  color: #334155 !important;
+}
+
+/* Contact & RFQ Page */
+.contact-info-panel, .contact-form-panel {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 25px rgba(11, 26, 48, 0.05) !important;
+}
+
+.form-input-field, .form-textarea-field {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0b1a30 !important;
+}
+
+.form-input-field:focus, .form-textarea-field:focus {
+  background: #ffffff !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+}
+
+.contact-method-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.contact-method-title {
+  color: #0b1a30 !important;
+}
+
+.contact-method-sub {
+  color: #475569 !important;
+}
+
+/* Modal Dialog */
+.modal-dialog-body {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-prod-title {
+  color: #0b1a30 !important;
+}
+
+.modal-prod-desc {
+  color: #475569 !important;
+}
+
+.modal-spec-badge {
+  background: #f0f9ff !important;
+  border: 1px solid #bae6fd !important;
+  color: #0284c7 !important;
+}
+
+.modal-photo-well {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.modal-close-trigger {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+}
+
+.modal-close-trigger:hover {
+  background: #ea580c !important;
+  color: #ffffff !important;
+}
+
+/* Anchor Luxury Footer (Deep Navy for solid professional grounding) */
+.master-footer {
+  background: #0b172a !important;
+  border-top: 1px solid #1e293b !important;
+}
+
+.footer-heading {
+  color: #ffffff !important;
+}
+
+.footer-bio-text {
+  color: #94a3b8 !important;
+}
+
+.footer-nav-list a {
+  color: #cbd5e1 !important;
+}
+
+.footer-nav-list a:hover {
+  color: #38bdf8 !important;
+}
+
+.footer-legal-bar {
+  color: #64748b !important;
+  border-top-color: #1e293b !important;
+}
