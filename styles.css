@@ -4,11 +4,11 @@
    ========================================================================== */
 
 :root {
-  --bg-deep: #030712;
-  --bg-darker: #050b17;
-  --bg-surface: #0a1428;
-  --bg-card: rgba(10, 22, 44, 0.72);
-  --bg-card-hover: rgba(16, 35, 70, 0.85);
+  --bg-deep: #0a1526;
+  --bg-darker: #0d1b32;
+  --bg-surface: #122442;
+  --bg-card: rgba(16, 34, 62, 0.78);
+  --bg-card-hover: rgba(22, 44, 78, 0.88);
   
   --neon-cyan: #00f2fe;
   --neon-cyan-glow: rgba(0, 242, 254, 0.45);
@@ -20,14 +20,15 @@
   --salhy-orange-glow: rgba(255, 119, 0, 0.45);
   --salhy-gold: #f59e0b;
   
-  --border-neon: rgba(0, 242, 254, 0.18);
-  --border-neon-strong: rgba(0, 242, 254, 0.45);
-  --border-orange: rgba(255, 119, 0, 0.3);
+  --border-neon: rgba(0, 242, 254, 0.22);
+  --border-neon-strong: rgba(0, 242, 254, 0.48);
+  --border-orange: rgba(255, 119, 0, 0.35);
+  --border-white-frosted: rgba(255, 255, 255, 0.20);
   
   --text-pure: #ffffff;
-  --text-silver: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --text-silver: #f1f5f9;
+  --text-muted: #a0aec0;
+  --text-dim: #718096;
   
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -56,12 +57,18 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--bg-deep);
+  background-color: #0a1526;
   cursor: url('assets/cursor.png') 0 0, auto;
 }
 
 body {
-  background-color: var(--bg-deep);
+  background-color: #0a1526;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 32%, transparent 62%),
+    radial-gradient(circle at 85% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 15% 55%, rgba(255, 255, 255, 0.09) 0%, transparent 40%),
+    radial-gradient(circle at 75% 85%, rgba(0, 242, 254, 0.10) 0%, transparent 45%);
+  background-attachment: fixed;
   color: var(--text-silver);
   font-family: var(--font-body);
   line-height: 1.65;
@@ -153,12 +160,13 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
    TOP BAR (Group Affiliation & Global Commercial Info)
    ========================================================================== */
 .top-header-strip {
-  background: rgba(3, 7, 18, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(90deg, rgba(16, 34, 62, 0.95) 0%, rgba(24, 48, 84, 0.95) 50%, rgba(16, 34, 62, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
   padding: 8px 0;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #cbd5e1;
 }
 
 .top-strip-inner {
@@ -262,22 +270,23 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(5, 11, 23, 0.88);
+  background: rgba(14, 28, 52, 0.90);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-neon);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   transition: var(--transition-smooth);
 }
 
 .main-navbar.scrolled {
-  background: rgba(3, 7, 18, 0.96);
-  border-bottom-color: var(--border-neon-strong);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  background: rgba(12, 24, 46, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 14px 28px;
+  padding: 10px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -291,18 +300,18 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .brand-main-logo {
-  height: 62px;
+  height: 84px;
   width: auto;
-  max-width: 220px;
+  max-width: 280px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(0, 242, 254, 0.4));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 12px rgba(0, 242, 254, 0.45));
   transition: var(--transition-smooth);
   display: block;
 }
 
 .brand-main-logo:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(0, 242, 254, 0.75));
+  transform: scale(1.04);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 22px rgba(0, 242, 254, 0.8));
 }
 
 .brand-divider {
@@ -460,12 +469,17 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
    ========================================================================== */
 .home-hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   padding: 60px 0 80px;
   overflow: hidden;
-  background: radial-gradient(circle at 75% 35%, rgba(0, 242, 254, 0.12) 0%, rgba(3, 7, 18, 0.98) 65%);
+  background: 
+    radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 35%, transparent 68%),
+    radial-gradient(circle at 80% 25%, rgba(0, 242, 254, 0.16) 0%, transparent 50%),
+    radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
+    linear-gradient(180deg, #0f1f38 0%, #0a172c 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .hero-3d-canvas-container {
@@ -531,24 +545,26 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .hero-spec-chip {
-  background: rgba(10, 22, 44, 0.7);
-  border: 1px solid var(--border-neon);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   padding: 8px 16px;
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-pure);
+  font-weight: 700;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 8px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition: var(--transition-fast);
 }
 
 .hero-spec-chip:hover {
-  border-color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.15);
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 .hero-buttons-row {
@@ -581,27 +597,29 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .btn-secondary-dark {
-  background: rgba(10, 22, 44, 0.8);
-  border: 1px solid var(--border-neon);
-  color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
   padding: 15px 28px;
   border-radius: var(--radius-md);
   text-decoration: none;
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.05rem;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   backdrop-filter: blur(12px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.32);
   transition: var(--transition-smooth);
 }
 
 .btn-secondary-dark:hover {
-  border-color: var(--salhy-orange);
-  color: var(--salhy-orange);
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
   transform: translateY(-3px);
-  box-shadow: 0 0 25px var(--salhy-orange-glow);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
 }
 
 /* 3D Showcase Card on Hero */
@@ -637,19 +655,19 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .hero-slider-box {
-  background: rgba(6, 18, 38, 0.72);
-  border: 1px solid rgba(0, 242, 254, 0.32);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.12) 0%, rgba(16, 34, 64, 0.90) 35%, rgba(10, 22, 44, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(0, 242, 254, 0.16);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 0 35px rgba(0, 242, 254, 0.15);
   backdrop-filter: blur(20px);
   position: relative;
   transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .hero-slider-box:hover {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 45px rgba(0, 242, 254, 0.28);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 45px rgba(255, 255, 255, 0.25);
 }
 
 .hero-slides-wrapper {
@@ -757,7 +775,8 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: rgba(6, 18, 38, 0.95);
+  background: linear-gradient(180deg, rgba(16, 32, 60, 0.95) 0%, rgba(10, 22, 44, 0.98) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
   flex-grow: 1;
 }
 
@@ -884,16 +903,16 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
   justify-content: space-between;
   gap: 10px;
   padding: 10px 18px;
-  background: rgba(3, 8, 20, 0.85);
-  border-top: 1px solid rgba(0, 242, 254, 0.15);
+  background: rgba(14, 28, 54, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .slider-arrow-btn {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgba(10, 22, 44, 0.8);
-  border: 1px solid rgba(0, 242, 254, 0.25);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #ffffff;
   cursor: pointer;
   display: flex;
@@ -904,10 +923,10 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .slider-arrow-btn:hover {
-  background: var(--neon-cyan);
-  color: var(--bg-deep);
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 15px var(--neon-cyan-glow);
+  background: #ffffff;
+  color: #030712;
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .slider-tabs-nav {
@@ -919,11 +938,11 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .slider-tab-dot {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   padding: 6px 12px;
   border-radius: 20px;
-  color: var(--text-muted);
+  color: #cbd5e1;
   font-size: 0.74rem;
   font-weight: 700;
   cursor: pointer;
@@ -935,14 +954,15 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 
 .slider-tab-dot:hover {
   color: #ffffff;
-  border-color: rgba(0, 242, 254, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .slider-tab-dot.active {
-  background: rgba(0, 242, 254, 0.12);
-  border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
-  box-shadow: 0 0 12px rgba(0, 242, 254, 0.25);
+  background: rgba(255, 255, 255, 0.20);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
 }
 
 .tab-dot-line {
@@ -956,7 +976,7 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 .slider-progress-bar-wrap {
   width: 100%;
   height: 3px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
   overflow: hidden;
 }
 
@@ -976,18 +996,21 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 .slider-metric-cell {
-  background: rgba(5, 11, 23, 0.78);
-  border: 1px solid rgba(0, 242, 254, 0.18);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.09) 0%, rgba(16, 32, 60, 0.88) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-md);
   padding: 10px 8px;
   text-align: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.22);
   transition: var(--transition-fast);
 }
 
 .slider-metric-cell:hover {
-  border-color: var(--neon-cyan);
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.18);
 }
 
 .slider-metric-num {
@@ -1001,7 +1024,7 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 
 .slider-metric-label {
   font-size: 0.68rem;
-  color: #94a3b8;
+  color: #cbd5e1;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -2885,6 +2908,10 @@ a, button, [role="button"], input[type="submit"], input[type="button"], select,
 }
 
 @media (max-width: 768px) {
+  .brand-main-logo {
+    height: 64px;
+    max-width: 210px;
+  }
   .hero-main-title {
     font-size: 2.6rem;
   }
