@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Mega Medical — Three.js Interactive 3D FCL Container Visualizer
+   MegaMedical — Three.js Interactive 3D FCL Container Visualizer
    ========================================================================== */
 
 let containerScene, containerCamera, containerRenderer;

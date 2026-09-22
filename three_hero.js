@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Mega Medical — Three.js 3D DNA Helix & Medical Particle Network
+   MegaMedical — Three.js 3D DNA Helix & Medical Particle Network
    ========================================================================== */
 
 function initHero3DScene() {

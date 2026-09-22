@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Mega Medical — Shared Experience Controller & Micro-Interactions
+   MegaMedical — Shared Experience Controller & Micro-Interactions
    ========================================================================== */
 
 // Audio Synthesizer via Web Audio API (No external sound files required)

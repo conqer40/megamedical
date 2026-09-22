@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Mega Medical - Official Medical Consumables Dataset (2026 Catalogue)
+   MegaMedical - Official Medical Consumables Dataset (2026 Catalogue)
    Parent Conglomerate: El Salhy Group (Established 1983)
    ========================================================================== */
 
@@ -226,7 +226,7 @@ const productsData = [
       "Tailored specifically for African, COMESA, and Middle East hospital procurement tenders",
       "Combines gloves, syringes, masks, IV sets, and catheters in a single 20ft/40ft container",
       "One certified supplier, unified commercial invoice, single bill of lading, unified inspection certificates",
-      "Custom volumetric container loading plan engineered by Mega Medical logistics specialists",
+      "Custom volumetric container loading plan engineered by MegaMedical logistics specialists",
       "Substantial cost savings in ocean freight, banking fees, and port customs clearance"
     ],
     certs: ["COMESA Certified", "ISO / CE Full Documentation", "COO EUR.1"],
