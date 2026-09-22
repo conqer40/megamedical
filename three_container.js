@@ -163,48 +163,86 @@ function update3DContainerBoxes() {
 
   // Clear previous cartons
   while (boxesGroup.children.length > 0) {
-    boxesGroup.remove(boxesGroup.children[0]);
+    const child = boxesGroup.children[0];
+    if (child.geometry) child.geometry.dispose();
+    boxesGroup.remove(child);
   }
 
   const cart = (typeof getCart === 'function') ? getCart() : {};
-  const totalCartons = Object.values(cart).reduce((sum, q) => sum + q, 0);
+  const is40 = containerCurrentType === 'fcl40';
+  const maxCbm = is40 ? 65.0 : 28.0;
+
+  let totalCartons = 0;
+  let totalCbm = 0;
+  Object.keys(cart).forEach(id => {
+    const q = cart[id];
+    totalCartons += q;
+    totalCbm += q * 0.055;
+  });
 
   if (totalCartons === 0) return;
 
-  // Maximum visual boxes to render without dropping frame rates
-  const visualMax = Math.min(Math.ceil(totalCartons / 15), 180);
+  // Calculate true physical fill percentage
+  const fillRatio = Math.min(totalCbm / maxCbm, 1.0);
 
-  const length = containerCurrentType === 'fcl40' ? 23 : 12;
-  const height = containerCurrentType === 'fcl40' ? 5.2 : 4.6;
+  const length = is40 ? 23 : 12;
+  const height = is40 ? 5.2 : 4.6;
   const width = 4.8;
 
-  const boxSize = 0.9;
-  const gap = 0.15;
-  const cols = Math.floor(length / (boxSize + gap));
-  const rows = Math.floor(height / (boxSize + gap));
-  const layers = Math.floor(width / (boxSize + gap));
+  const boxSize = 0.92;
+  const gap = 0.08;
+  const pitch = boxSize + gap; // 1.0
+  const cols = Math.floor(length / pitch);   // 12 for 20ft, 23 for 40ft
+  const rows = Math.floor(height / pitch);   // 4 for 20ft, 5 for 40ft
+  const layers = Math.floor(width / pitch);  // 4
+
+  const totalSlots = cols * rows * layers; // 192 for 20ft, 460 for 40ft
+  
+  // Calculate exact number of boxes to render matching the container volume percentage
+  // 50% volume = 50% container filled; 100% volume = 100% container completely filled!
+  let boxesToRender = Math.round(fillRatio * totalSlots);
+  if (totalCartons > 0 && boxesToRender === 0) boxesToRender = 1;
+  boxesToRender = Math.min(boxesToRender, totalSlots);
 
   const cartonGeo = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
-  const cartonMat = new THREE.MeshStandardMaterial({
-    color: 0xff7700,
-    roughness: 0.5,
-    metalness: 0.1
+  
+  // Realistic export carton materials
+  const kraftCartonMat = new THREE.MeshStandardMaterial({
+    color: 0xd97706, // Salhy export gold-orange kraft cardboard
+    roughness: 0.6,
+    metalness: 0.05
   });
   const cyanCartonMat = new THREE.MeshStandardMaterial({
-    color: 0x00f2fe,
-    roughness: 0.3,
-    metalness: 0.4
+    color: 0x00f2fe, // MegaMedical sterile cyan packaging
+    roughness: 0.35,
+    metalness: 0.25
+  });
+  const alertOverloadMat = new THREE.MeshStandardMaterial({
+    color: 0xef4444, // Red highlight if overloaded
+    roughness: 0.4,
+    metalness: 0.2
   });
 
-  let count = 0;
-  for (let x = 0; x < cols && count < visualMax; x++) {
-    for (let y = 0; y < rows && count < visualMax; y++) {
-      for (let z = 0; z < layers && count < visualMax; z++) {
-        const posX = -length / 2 + (boxSize / 2) + x * (boxSize + gap);
-        const posY = -height / 2 + (boxSize / 2) + y * (boxSize + gap);
-        const posZ = -width / 2 + (boxSize / 2) + z * (boxSize + gap);
+  const isOverloaded = totalCbm > maxCbm;
 
-        const mesh = new THREE.Mesh(cartonGeo, (x + y + z) % 3 === 0 ? cyanCartonMat : cartonMat);
+  let count = 0;
+  // Fill slice by slice along length (X: from front bulkhead towards cargo doors)
+  // Inside each slice, stack from floor (Y) up, wall to wall (Z)
+  for (let x = 0; x < cols && count < boxesToRender; x++) {
+    for (let y = 0; y < rows && count < boxesToRender; y++) {
+      for (let z = 0; z < layers && count < boxesToRender; z++) {
+        const posX = -length / 2 + (boxSize / 2) + 0.1 + x * pitch;
+        const posY = -height / 2 + (boxSize / 2) + 0.1 + y * pitch;
+        const posZ = -width / 2 + (boxSize / 2) + 0.1 + z * pitch;
+
+        let mat = kraftCartonMat;
+        if (isOverloaded && y === rows - 1) {
+          mat = alertOverloadMat;
+        } else if ((x + y + z) % 3 === 0) {
+          mat = cyanCartonMat;
+        }
+
+        const mesh = new THREE.Mesh(cartonGeo, mat);
         mesh.position.set(posX, posY, posZ);
         boxesGroup.add(mesh);
         count++;
