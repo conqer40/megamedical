@@ -281,15 +281,18 @@ body {
 }
 
 .brand-main-logo {
-  height: 48px;
+  height: 62px;
   width: auto;
-  filter: drop-shadow(0 0 15px rgba(2, 132, 199, 0.5));
+  max-width: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(0, 242, 254, 0.4));
   transition: var(--transition-smooth);
+  display: block;
 }
 
 .brand-main-logo:hover {
-  transform: scale(1.03);
-  filter: drop-shadow(0 0 25px rgba(0, 242, 254, 0.7));
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(0, 242, 254, 0.75));
 }
 
 .brand-divider {
@@ -2163,9 +2166,12 @@ body {
 }
 
 .footer-logo-img {
-  height: 48px;
+  height: 64px;
   width: auto;
+  max-width: 240px;
+  object-fit: contain;
   margin-bottom: 18px;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7));
 }
 
 .footer-bio-text {
