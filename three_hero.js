@@ -440,9 +440,544 @@ function initHero3DScene() {
   animate();
 }
 
-// Auto-run
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initHero3DScene);
-} else {
+/* ==========================================================================
+   MegaMedical — Holographic Cleanroom Pod (Option C)
+   Interactive 3D WebGL Inspection Chamber, Floating Crystal Syringe & Laser Scan
+   ========================================================================== */
+
+function initCleanroomPod3D() {
+  const stage = document.getElementById('cleanroom-pod-stage');
+  const canvas = document.getElementById('cleanroom-pod-canvas');
+  if (!stage || !canvas || typeof THREE === 'undefined') return;
+
+  const getWidth = () => stage.clientWidth || 450;
+  const getHeight = () => stage.clientHeight || 330;
+
+  let width = getWidth();
+  let height = getHeight();
+
+  // Scene, Camera & Renderer
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+  camera.position.set(0, 1.2, 11.8);
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    alpha: true,
+    antialias: true,
+    powerPreference: 'high-performance'
+  });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x000000, 0);
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0x0a223e, 1.8);
+  scene.add(ambientLight);
+
+  const dirLightCyan = new THREE.DirectionalLight(0x00f2fe, 2.5);
+  dirLightCyan.position.set(5, 7, 6);
+  scene.add(dirLightCyan);
+
+  const dirLightOrange = new THREE.DirectionalLight(0xff7700, 1.2);
+  dirLightOrange.position.set(-6, -4, 4);
+  scene.add(dirLightOrange);
+
+  const pointLightCore = new THREE.PointLight(0x38bdf8, 2.0, 15);
+  pointLightCore.position.set(0, 0, 3);
+  scene.add(pointLightCore);
+
+  // Master Pod Group (Tilts & Rotates)
+  const masterPodGroup = new THREE.Group();
+  scene.add(masterPodGroup);
+  masterPodGroup.rotation.x = 0.22;
+
+  // 1. BASE PEDESTAL PLATFORM
+  const pedestalGroup = new THREE.Group();
+  pedestalGroup.position.y = -3.2;
+  masterPodGroup.add(pedestalGroup);
+
+  // Dark metallic base
+  const baseGeo = new THREE.CylinderGeometry(3.3, 3.5, 0.35, 48);
+  const baseMat = new THREE.MeshStandardMaterial({
+    color: 0x07152b,
+    roughness: 0.25,
+    metalness: 0.85
+  });
+  const baseMesh = new THREE.Mesh(baseGeo, baseMat);
+  pedestalGroup.add(baseMesh);
+
+  // Base glowing neon rim
+  const baseRimGeo = new THREE.TorusGeometry(3.32, 0.05, 16, 64);
+  const neonCyanMat = new THREE.MeshBasicMaterial({
+    color: 0x00f2fe,
+    transparent: true,
+    opacity: 0.85
+  });
+  const baseRimMesh = new THREE.Mesh(baseRimGeo, neonCyanMat);
+  baseRimMesh.rotation.x = Math.PI / 2;
+  baseRimMesh.position.y = 0.18;
+  pedestalGroup.add(baseRimMesh);
+
+  // Inner circular grid disk on platform
+  const gridDiskGeo = new THREE.RingGeometry(0.1, 3.1, 32);
+  const gridDiskMat = new THREE.MeshBasicMaterial({
+    color: 0x0284c7,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.25,
+    side: THREE.DoubleSide
+  });
+  const gridDiskMesh = new THREE.Mesh(gridDiskGeo, gridDiskMat);
+  gridDiskMesh.rotation.x = Math.PI / 2;
+  gridDiskMesh.position.y = 0.19;
+  pedestalGroup.add(gridDiskMesh);
+
+  // 2. CONCENTRIC HOLOGRAPHIC ENERGY RINGS
+  // Outer Calibration Ring
+  const outerRingGroup = new THREE.Group();
+  masterPodGroup.add(outerRingGroup);
+
+  const outerRingGeo = new THREE.RingGeometry(3.6, 3.75, 64);
+  const outerRingMat = new THREE.MeshBasicMaterial({
+    color: 0x0284c7,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.45,
+    blending: THREE.AdditiveBlending
+  });
+  const outerRingMesh = new THREE.Mesh(outerRingGeo, outerRingMat);
+  outerRingMesh.rotation.x = Math.PI / 2;
+  outerRingMesh.position.y = -2.2;
+  outerRingGroup.add(outerRingMesh);
+
+  // Calibration tick lines on outer ring
+  const tickCount = 36;
+  const tickMat = new THREE.LineBasicMaterial({
+    color: 0x00f2fe,
+    transparent: true,
+    opacity: 0.7,
+    blending: THREE.AdditiveBlending
+  });
+  const tickGeo = new THREE.BufferGeometry();
+  const tickPositions = [];
+  for (let i = 0; i < tickCount; i++) {
+    const angle = (i / tickCount) * Math.PI * 2;
+    const r1 = 3.55;
+    const r2 = i % 4 === 0 ? 3.82 : 3.72;
+    tickPositions.push(Math.cos(angle) * r1, -2.2, Math.sin(angle) * r1);
+    tickPositions.push(Math.cos(angle) * r2, -2.2, Math.sin(angle) * r2);
+  }
+  tickGeo.setAttribute('position', new THREE.Float32BufferAttribute(tickPositions, 3));
+  const tickLines = new THREE.LineSegments(tickGeo, tickMat);
+  outerRingGroup.add(tickLines);
+
+  // Middle Oblique Scanner Ring
+  const middleRingGroup = new THREE.Group();
+  masterPodGroup.add(middleRingGroup);
+  middleRingGroup.rotation.z = 0.35;
+  middleRingGroup.rotation.x = 0.45;
+
+  const middleRingGeo = new THREE.TorusGeometry(3.1, 0.04, 16, 64);
+  const middleRingMat = new THREE.MeshBasicMaterial({
+    color: 0x00f2fe,
+    transparent: true,
+    opacity: 0.75,
+    blending: THREE.AdditiveBlending
+  });
+  const middleRingMesh = new THREE.Mesh(middleRingGeo, middleRingMat);
+  middleRingGroup.add(middleRingMesh);
+
+  // Inner Rotating Equator Ring
+  const innerRingGeo = new THREE.TorusGeometry(2.4, 0.025, 16, 48);
+  const innerRingMat = new THREE.MeshBasicMaterial({
+    color: 0x38bdf8,
+    transparent: true,
+    opacity: 0.55,
+    blending: THREE.AdditiveBlending
+  });
+  const innerRingMesh = new THREE.Mesh(innerRingGeo, innerRingMat);
+  innerRingMesh.rotation.x = Math.PI / 2.3;
+  masterPodGroup.add(innerRingMesh);
+
+  // 3. CENTRAL FLOATING 3D MEDICAL DEVICE (Crystal Medical Syringe & Cannula)
+  const syringeGroup = new THREE.Group();
+  masterPodGroup.add(syringeGroup);
+
+  // Glass Barrel
+  const barrelGeo = new THREE.CylinderGeometry(0.72, 0.72, 4.0, 32, 1, true);
+  const glassMat = new THREE.MeshStandardMaterial({
+    color: 0xcffafe,
+    roughness: 0.1,
+    metalness: 0.15,
+    transparent: true,
+    opacity: 0.38,
+    side: THREE.DoubleSide
+  });
+  const barrelMesh = new THREE.Mesh(barrelGeo, glassMat);
+  barrelMesh.position.y = 0.2;
+  syringeGroup.add(barrelMesh);
+
+  // Finger Flange (Wings at top of barrel)
+  const flangeGeo = new THREE.BoxGeometry(2.4, 0.14, 1.1);
+  const flangeMat = new THREE.MeshStandardMaterial({
+    color: 0x7dd3fc,
+    roughness: 0.2,
+    transparent: true,
+    opacity: 0.65
+  });
+  const flangeMesh = new THREE.Mesh(flangeGeo, flangeMat);
+  flangeMesh.position.y = 2.2;
+  syringeGroup.add(flangeMesh);
+
+  // Luer Lock Hub (Bottom connector)
+  const luerGeo = new THREE.CylinderGeometry(0.18, 0.34, 0.55, 24);
+  const luerMat = new THREE.MeshStandardMaterial({
+    color: 0x0284c7,
+    roughness: 0.3,
+    metalness: 0.3
+  });
+  const luerMesh = new THREE.Mesh(luerGeo, luerMat);
+  luerMesh.position.y = -2.05;
+  syringeGroup.add(luerMesh);
+
+  // Stainless Steel Cannula / Needle
+  const needleGeo = new THREE.CylinderGeometry(0.025, 0.025, 2.0, 16);
+  const needleMat = new THREE.MeshStandardMaterial({
+    color: 0xf8fafc,
+    metalness: 0.95,
+    roughness: 0.1
+  });
+  const needleMesh = new THREE.Mesh(needleGeo, needleMat);
+  needleMesh.position.y = -3.25;
+  syringeGroup.add(needleMesh);
+
+  // Needle Beveled Tip Glint Point
+  const tipGlowGeo = new THREE.SphereGeometry(0.06, 12, 12);
+  const tipGlowMat = new THREE.MeshBasicMaterial({
+    color: 0x00f2fe,
+    transparent: true,
+    opacity: 0.9,
+    blending: THREE.AdditiveBlending
+  });
+  const tipGlow = new THREE.Mesh(tipGlowGeo, tipGlowMat);
+  tipGlow.position.y = -4.25;
+  syringeGroup.add(tipGlow);
+
+  // Plunger Rod inside barrel
+  const plungerRodGeo = new THREE.CylinderGeometry(0.22, 0.22, 3.8, 16);
+  const plungerMat = new THREE.MeshStandardMaterial({
+    color: 0x0284c7,
+    roughness: 0.3,
+    metalness: 0.4
+  });
+  const plungerRod = new THREE.Mesh(plungerRodGeo, plungerMat);
+  plungerRod.position.y = 1.9;
+  syringeGroup.add(plungerRod);
+
+  // Plunger Rubber Stopper (Piston)
+  const stopperGeo = new THREE.CylinderGeometry(0.68, 0.68, 0.48, 32);
+  const stopperMat = new THREE.MeshStandardMaterial({
+    color: 0x0f172a,
+    roughness: 0.8
+  });
+  const stopper = new THREE.Mesh(stopperGeo, stopperMat);
+  stopper.position.y = 0.3;
+  syringeGroup.add(stopper);
+
+  // Plunger Top Thumb Rest (Push Disc)
+  const thumbGeo = new THREE.CylinderGeometry(0.78, 0.78, 0.12, 32);
+  const thumbMesh = new THREE.Mesh(thumbGeo, flangeMat);
+  thumbMesh.position.y = 3.8;
+  syringeGroup.add(thumbMesh);
+
+  // Graduation Tick Mark Lines along Barrel
+  const gradLinesGroup = new THREE.Group();
+  syringeGroup.add(gradLinesGroup);
+  for (let g = 0; g < 14; g++) {
+    const gy = -1.5 + g * 0.26;
+    const isMajor = g % 3 === 0;
+    const gGeo = new THREE.RingGeometry(0.725, 0.74, 32);
+    const gMat = new THREE.MeshBasicMaterial({
+      color: isMajor ? 0xffffff : 0x38bdf8,
+      transparent: true,
+      opacity: isMajor ? 0.85 : 0.45,
+      side: THREE.DoubleSide
+    });
+    const gMesh = new THREE.Mesh(gGeo, gMat);
+    gMesh.rotation.x = Math.PI / 2;
+    gMesh.position.y = gy;
+    gradLinesGroup.add(gMesh);
+  }
+
+  // 4. ACTIVE VERTICAL LASER SCANNING BEAM
+  const laserScanGroup = new THREE.Group();
+  masterPodGroup.add(laserScanGroup);
+
+  // Glowing planar sweep disk
+  const laserPlaneGeo = new THREE.RingGeometry(0.08, 2.7, 48);
+  const laserPlaneMat = new THREE.MeshBasicMaterial({
+    color: 0x00f2fe,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.35,
+    blending: THREE.AdditiveBlending
+  });
+  const laserPlaneMesh = new THREE.Mesh(laserPlaneGeo, laserPlaneMat);
+  laserPlaneMesh.rotation.x = Math.PI / 2;
+  laserScanGroup.add(laserPlaneMesh);
+
+  // Perimeter laser ring
+  const laserRingGeo = new THREE.TorusGeometry(2.7, 0.035, 16, 48);
+  const laserRingMat = new THREE.MeshBasicMaterial({
+    color: 0x38bdf8,
+    transparent: true,
+    opacity: 0.9,
+    blending: THREE.AdditiveBlending
+  });
+  const laserRingMesh = new THREE.Mesh(laserRingGeo, laserRingMat);
+  laserRingMesh.rotation.x = Math.PI / 2;
+  laserScanGroup.add(laserRingMesh);
+
+  // 5. CLEANROOM IONIZED STERILE PARTICLES
+  const particleCount = 130;
+  const particleGeo = new THREE.BufferGeometry();
+  const particlePositions = new Float32Array(particleCount * 3);
+  const particleSpeeds = [];
+
+  for (let p = 0; p < particleCount; p++) {
+    const angle = Math.random() * Math.PI * 2;
+    const rad = 0.5 + Math.random() * 2.8;
+    particlePositions[p * 3] = Math.cos(angle) * rad;
+    particlePositions[p * 3 + 1] = (Math.random() - 0.5) * 6.5;
+    particlePositions[p * 3 + 2] = Math.sin(angle) * rad;
+
+    particleSpeeds.push({
+      y: 0.006 + Math.random() * 0.012,
+      rot: (Math.random() - 0.5) * 0.015
+    });
+  }
+  particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+  const particleMat = new THREE.PointsMaterial({
+    color: 0x00f2fe,
+    size: 0.08,
+    transparent: true,
+    opacity: 0.65,
+    blending: THREE.AdditiveBlending
+  });
+  const particlePoints = new THREE.Points(particleGeo, particleMat);
+  masterPodGroup.add(particlePoints);
+
+  // 6. SHOCKWAVE STERILIZATION PULSE RING
+  const shockwaveGeo = new THREE.TorusGeometry(0.3, 0.06, 16, 64);
+  const shockwaveMat = new THREE.MeshBasicMaterial({
+    color: 0x00f2fe,
+    transparent: true,
+    opacity: 0.0,
+    blending: THREE.AdditiveBlending
+  });
+  const shockwaveMesh = new THREE.Mesh(shockwaveGeo, shockwaveMat);
+  shockwaveMesh.rotation.x = Math.PI / 2;
+  masterPodGroup.add(shockwaveMesh);
+
+  let isPulseActive = false;
+  let pulseProgress = 0;
+
+  function triggerPulse() {
+    isPulseActive = true;
+    pulseProgress = 0;
+    shockwaveMesh.scale.set(0.2, 0.2, 0.2);
+    shockwaveMat.opacity = 1.0;
+
+    const readout = document.getElementById('pod-sensor-readout');
+    const status = document.getElementById('pod-cycle-status');
+    if (readout) {
+      readout.textContent = '0.00 PPM · 100% STERILE';
+      readout.style.color = '#10b981';
+    }
+    if (status) {
+      status.textContent = '⚡ PULSE DISCHARGED: 100%';
+    }
+
+    // Audio feedback if enabled
+    if (window.soundFXEnabled && typeof window.playAudioBeep === 'function') {
+      window.playAudioBeep(880, 0.15);
+    }
+
+    setTimeout(() => {
+      if (readout) {
+        readout.textContent = '0.00 PPM / Sterile';
+        readout.style.color = '#ffffff';
+      }
+      if (status) {
+        status.textContent = 'Laser Sweep: 99.8%';
+      }
+    }, 2400);
+  }
+
+  const pulseBtn = document.getElementById('btn-trigger-pulse');
+  if (pulseBtn) {
+    pulseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      triggerPulse();
+    });
+  }
+
+  stage.addEventListener('click', () => {
+    triggerPulse();
+  });
+
+  // 7. MOUSE DRAG ORBIT & HOVER TILT
+  let isDragging = false;
+  let prevMouseX = 0;
+  let prevMouseY = 0;
+  let rotVelocityX = 0;
+  let rotVelocityY = 0;
+  let targetTiltX = 0.22;
+  let targetTiltY = 0;
+
+  stage.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    prevMouseX = e.clientX;
+    prevMouseY = e.clientY;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      const deltaX = e.clientX - prevMouseX;
+      const deltaY = e.clientY - prevMouseY;
+      rotVelocityY = deltaX * 0.006;
+      rotVelocityX = deltaY * 0.006;
+      masterPodGroup.rotation.y += rotVelocityY;
+      masterPodGroup.rotation.x += rotVelocityX;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+    } else {
+      const rect = stage.getBoundingClientRect();
+      if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+        const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        targetTiltY = nx * 0.35;
+        targetTiltX = 0.22 - ny * 0.25;
+      }
+    }
+  });
+
+  // Touch handling
+  stage.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      prevMouseX = e.touches[0].clientX;
+      prevMouseY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length === 1) {
+      const deltaX = e.touches[0].clientX - prevMouseX;
+      const deltaY = e.touches[0].clientY - prevMouseY;
+      masterPodGroup.rotation.y += deltaX * 0.008;
+      masterPodGroup.rotation.x += deltaY * 0.008;
+      prevMouseX = e.touches[0].clientX;
+      prevMouseY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  // Handle Window Resize
+  function handleResize() {
+    const w = getWidth();
+    const h = getHeight();
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+  window.addEventListener('resize', handleResize);
+
+  // 8. ANIMATION LOOP
+  let clock = new THREE.Clock();
+
+  function animatePod() {
+    requestAnimationFrame(animatePod);
+    const elapsedTime = clock.getElapsedTime();
+
+    // Subtle drift / damping
+    if (!isDragging) {
+      masterPodGroup.rotation.y += 0.004;
+      masterPodGroup.rotation.x += (targetTiltX - masterPodGroup.rotation.x) * 0.05;
+    }
+
+    // Rings rotation
+    outerRingGroup.rotation.y += 0.005;
+    middleRingGroup.rotation.y -= 0.008;
+    middleRingGroup.rotation.x += 0.003;
+    innerRingMesh.rotation.z += 0.01;
+
+    // Central Syringe Floating Bob & Axial Spin
+    syringeGroup.position.y = Math.sin(elapsedTime * 1.8) * 0.18;
+    syringeGroup.rotation.y += 0.01;
+
+    // Needle glint pulse
+    tipGlow.scale.setScalar(1.0 + Math.sin(elapsedTime * 6.0) * 0.35);
+
+    // Active Vertical Laser Scan Sweep (oscillates -2.4 to +2.4)
+    const laserY = Math.sin(elapsedTime * 2.4) * 2.3;
+    laserScanGroup.position.y = laserY;
+    laserPlaneMat.opacity = 0.28 + Math.sin(elapsedTime * 8.0) * 0.12;
+
+    // Particle Mist Drift
+    const pPos = particleGeo.attributes.position;
+    for (let p = 0; p < particleCount; p++) {
+      let py = pPos.getY(p);
+      py += particleSpeeds[p].y;
+      if (py > 3.2) py = -3.2;
+      pPos.setY(p, py);
+
+      // Orbital drift
+      let px = pPos.getX(p);
+      let pz = pPos.getZ(p);
+      const angle = particleSpeeds[p].rot;
+      const cosA = Math.cos(angle);
+      const sinA = Math.sin(angle);
+      pPos.setX(p, px * cosA - pz * sinA);
+      pPos.setZ(p, px * sinA + pz * cosA);
+    }
+    pPos.needsUpdate = true;
+
+    // Shockwave pulse expansion
+    if (isPulseActive) {
+      pulseProgress += 0.035;
+      const currentScale = 0.2 + pulseProgress * 14.0;
+      shockwaveMesh.scale.set(currentScale, currentScale, currentScale);
+      shockwaveMat.opacity = Math.max(0, 1.0 - pulseProgress);
+      if (pulseProgress >= 1.0) {
+        isPulseActive = false;
+        shockwaveMat.opacity = 0;
+      }
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  animatePod();
+}
+
+// Master Initialization
+function initAllHeroScenes() {
   initHero3DScene();
+  initCleanroomPod3D();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAllHeroScenes);
+} else {
+  initAllHeroScenes();
 }
