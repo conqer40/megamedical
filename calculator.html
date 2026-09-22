@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D FCL Container Loading Simulator | Mega Medical — El Salhy Group</title>
+  
+  <meta name="description" content="Calculate and visualize consolidated container loads for 20ft and 40ft FCL shipments of medical supplies. Direct quotation export to WhatsApp.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body dir="ltr">
+
+  <canvas id="ambient-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- Top Commercial Strip -->
+    <div class="top-header-strip">
+      <div class="top-strip-inner">
+        <div class="group-link-badge">
+          <img src="assets/elsalhy_logo.png" alt="El Salhy Group Logo">
+          <span>An Enterprise of <strong>El Salhy Group</strong></span>
+          <span class="tag-legacy">EST. 1983</span>
+          <a href="https://www.elsalhygroup.com" target="_blank" rel="noopener noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Visit Group Portal</span>
+          </a>
+        </div>
+
+        <div class="top-strip-contacts">
+          <a href="mailto:medical@elsalhygroup.com" class="top-strip-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>medical@elsalhygroup.com</span>
+          </a>
+          <a href="https://wa.me/201025930930" target="_blank" class="top-strip-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>WhatsApp: +20 10 25 930 930</span>
+          </a>
+          <button class="sound-toggle-btn" id="sound-toggle">🔊 Sound FX</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Navbar -->
+    <header class="main-navbar">
+      <div class="navbar-inner">
+        <div class="nav-brand-wrap">
+          <a href="index.html">
+            <img src="assets/logo.png" alt="Mega Medical Logo" class="brand-main-logo">
+          </a>
+          <div class="brand-divider"></div>
+          <a href="https://www.elsalhygroup.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/elsalhy_logo.png" alt="El Salhy Group" class="brand-parent-logo">
+          </a>
+        </div>
+
+        <ul class="nav-menu" id="nav-menu-list">
+          <li><a href="index.html" class="nav-item-link">Home</a></li>
+          <li><a href="products.html" class="nav-item-link">Product Catalogue</a></li>
+          <li><a href="calculator.html" class="nav-item-link active">FCL Load Simulator<span id="nav-cart-badge" style="color: var(--salhy-orange); font-weight: 800;"></span></a></li>
+          <li><a href="about.html" class="nav-item-link">Why Mega Medical</a></li>
+          <li><a href="terms.html" class="nav-item-link">Commercial Terms</a></li>
+          <li><a href="contact.html" class="nav-item-link">Contact & RFQ</a></li>
+        </ul>
+
+        <div class="nav-actions-group">
+          <a href="calculator.html" class="btn-nav-calc">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <span>FCL Calculator</span>
+          </a>
+          <button class="nav-mobile-toggle" id="nav-toggle-btn" aria-label="Toggle Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Subpage Hero Banner -->
+    <section class="subpage-hero">
+      <div class="subpage-hero-inner">
+        <span class="badge-tag-cyan">Consolidated Ocean Freight Engineering</span>
+        <h1 class="subpage-title">3D FCL Container <span class="gradient-text">Load Simulator</span></h1>
+        <p class="subpage-subtitle">
+          Engineered for international hospital procurement managers and tender distributors. Select items to stack cartons dynamically in real-time 3D WebGL, evaluate volume & weight, and export an instant quotation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator Main Layout -->
+    <main class="calc-page-section">
+      <div class="global-container">
+        <div class="calc-dual-layout">
+
+          <!-- Left Column: Container Type & Carton Steppers -->
+          <div class="calc-glass-box">
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+              <span style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan)); color: #030712; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">1</span>
+              <span>Select Shipping Container Standard</span>
+            </h3>
+
+            <div class="calc-spec-selectors">
+              <div class="container-select-card selected" id="radio-fcl20" onclick="handleContainerChange('fcl20')">
+                <div style="font-size: 2rem;">📦</div>
+                <div>
+                  <div style="font-family: var(--font-display); font-weight: 800; color: #fff; font-size: 1.05rem;">20ft Standard FCL</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Usable Volume ~ 28 CBM · Max Gross 18 T</div>
+                </div>
+              </div>
+
+              <div class="container-select-card" id="radio-fcl40" onclick="handleContainerChange('fcl40')">
+                <div style="font-size: 2rem;">🚢</div>
+                <div>
+                  <div style="font-family: var(--font-display); font-weight: 800; color: #fff; font-size: 1.05rem;">40ft High-Cube (HQ)</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Usable Volume ~ 65 CBM · Max Gross 26 T</div>
+                </div>
+              </div>
+            </div>
+
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;">
+              <span style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan)); color: #030712; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900;">2</span>
+              <span>Specify Carton Quantities for Mixed Load</span>
+            </h3>
+
+            <!-- Dynamic Carton Stepper Rows -->
+            <div class="calc-rows-container" id="calc-items-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive 3D Canvas Stage & Analysis -->
+          <div class="calc-glass-box calc-summary-sticky">
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 16px;">
+              Live 3D Container Stacking
+            </h3>
+
+            <!-- 3D Three.js Container Canvas -->
+            <div class="container-3d-stage-wrap">
+              <div id="container-3d-stage" style="width: 100%; height: 100%;"></div>
+              <div class="canvas-controls-hint">🖱️ Click & Drag to Orbit 360°</div>
+            </div>
+
+            <!-- Volume Capacity Meter -->
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-size: 0.9rem; font-weight: 700; color: #fff;">Volume Fill Ratio:</span>
+                <span id="calc-capacity-num" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; color: var(--neon-cyan);">0%</span>
+              </div>
+              <div class="meter-capacity-track">
+                <div class="meter-capacity-fill" id="calc-capacity-bar"></div>
+              </div>
+              <div id="calc-capacity-status" style="font-size: 0.8rem; margin-top: 8px; color: var(--text-muted);">
+                Container is empty — Add cartons to calculate load.
+              </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="calc-stats-grid">
+              <div class="stat-cell-box">
+                <div class="stat-cell-label">Total Cartons</div>
+                <div class="stat-cell-val" id="calc-total-cartons">0</div>
+              </div>
+              <div class="stat-cell-box">
+                <div class="stat-cell-label">Calculated Volume</div>
+                <div class="stat-cell-val" id="calc-total-cbm">0.0 / 28 CBM</div>
+              </div>
+              <div class="stat-cell-box" style="grid-column: span 2;">
+                <div class="stat-cell-label">Estimated Gross Weight</div>
+                <div class="stat-cell-val" id="calc-total-weight">0.00 Tons</div>
+              </div>
+            </div>
+
+            <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Active Shipment Contents:</h4>
+            <div class="calc-selected-preview" id="calc-preview-list" style="margin-bottom: 20px; max-height: 150px; overflow-y: auto;">
+              <!-- Tags populated dynamically -->
+            </div>
+
+            <button class="btn-export-whatsapp-quote" onclick="exportContainerToWhatsApp()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Export Loading Plan to WhatsApp</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Master Footer -->
+    <footer class="master-footer">
+      <div class="global-container">
+        <div class="footer-columns-grid">
+          <div>
+            <img src="assets/logo.png" alt="Mega Medical" class="footer-logo-img">
+            <p class="footer-bio-text">
+              Mega Medical is the specialized medical consumables and export enterprise of El Salhy Group (Established 1983). We deliver medical consumables meeting CE, ISO 13485, and WHO requirements.
+            </p>
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <img src="assets/elsalhy_logo.png" alt="El Salhy Group" style="height: 32px;">
+              <span style="font-size: 0.8rem; color: var(--salhy-orange); font-weight: 800;">EL SALHY GROUP AFFILIATE</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Quick Navigation</h4>
+            <ul class="footer-nav-list">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Product Catalogue (20 Items)</a></li>
+              <li><a href="calculator.html">3D Container Simulator</a></li>
+              <li><a href="about.html">Why Mega Medical</a></li>
+              <li><a href="terms.html">Commercial & Export Terms</a></li>
+              <li><a href="contact.html">Contact & RFQ Center</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Product Divisions</h4>
+            <ul class="footer-nav-list">
+              <li><a href="products.html">Examination & Surgical Gloves</a></li>
+              <li><a href="products.html">Disposable & Insulin Syringes</a></li>
+              <li><a href="products.html">IV Infusion & Blood Transfusion</a></li>
+              <li><a href="products.html">Suction & Urinary Catheters</a></li>
+              <li><a href="products.html">Hemodialysis Lines & Needles</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">El Salhy Sister Companies</h4>
+            <ul class="footer-nav-list">
+              <li><a href="https://elsalhygroup.com/import-trade/" target="_blank">Elsalhy for Import</a></li>
+              <li><a href="https://elsalhygroup.com/megatrade22/" target="_blank">Megatrade</a></li>
+              <li><a href="https://elsalhygroup.com/MegaExport/" target="_blank">MegaExport</a></li>
+              <li><a href="https://elsalhygroup.com/horizon" target="_blank">Horizon</a></li>
+              <li><a href="https://www.elsalhygroup.com" target="_blank">Corporate Portal</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-legal-bar">
+          <div>© 2026 Mega Medical — El Salhy Group. All rights reserved. Official 2026 Export Catalogue.</div>
+          <div>Certified ISO 13485 & CE Medical Devices · Cairo, Egypt</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Dock -->
+    <div class="floating-dock-wrap">
+      <a href="https://wa.me/201025930930" target="_blank" class="dock-action-btn btn-dock-whatsapp" title="WhatsApp Sales Desk">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      </a>
+      <a href="tel:+201025930930" class="dock-action-btn btn-dock-phone" title="Call Cairo Office">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/three.min.js"></script>
+  <script src="common.js"></script>
+  <script src="products_data.js"></script>
+  <script src="three_container.js"></script>
+  <script>
+    function handleContainerChange(type) {
+      document.getElementById('radio-fcl20')?.classList.toggle('selected', type === 'fcl20');
+      document.getElementById('radio-fcl40')?.classList.toggle('selected', type === 'fcl40');
+      build3DContainerFrame(type);
+      updateCalcSummaryView();
+    }
+
+    function renderCalcRows() {
+      const container = document.getElementById('calc-items-container');
+      if (!container) return;
+      const cart = getCart();
+
+      container.innerHTML = productsData.map(item => {
+        const qty = cart[item.id] || 0;
+        return `
+          <div class="carton-item-row" data-id="${item.id}">
+            <div class="carton-info-flex">
+              <img src="${item.image}" alt="${item.name}" class="carton-thumb-img">
+              <div>
+                <div class="carton-name-text">${item.code}: ${item.name}</div>
+                <div class="carton-pack-text">${item.packing}</div>
+              </div>
+            </div>
+            <div class="carton-stepper-wrap">
+              <button class="stepper-btn" onclick="stepCarton(${item.id}, -10)">-</button>
+              <input type="number" min="0" step="10" value="${qty}" class="stepper-input-box" onchange="setCarton(${item.id}, this.value)">
+              <button class="stepper-btn" onclick="stepCarton(${item.id}, 10)">+</button>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">ctns</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function stepCarton(id, delta) {
+      const cart = getCart();
+      const current = cart[id] || 0;
+      const updated = Math.max(0, current + delta);
+      if (updated === 0) {
+        delete cart[id];
+      } else {
+        cart[id] = updated;
+      }
+      saveCart(cart);
+      playUiSound('click');
+      renderCalcRows();
+      updateCalcSummaryView();
+      update3DContainerBoxes();
+      updateNavCartBadge();
+    }
+
+    function setCarton(id, val) {
+      const cart = getCart();
+      const num = parseInt(val, 10) || 0;
+      if (num <= 0) {
+        delete cart[id];
+      } else {
+        cart[id] = num;
+      }
+      saveCart(cart);
+      updateCalcSummaryView();
+      update3DContainerBoxes();
+      updateNavCartBadge();
+    }
+
+    function updateCalcSummaryView() {
+      const cart = getCart();
+      const is40 = document.getElementById('radio-fcl40')?.classList.contains('selected');
+      const maxCbm = is40 ? 65.0 : 28.0;
+
+      let totalCartons = 0;
+      let totalCbm = 0;
+      let totalWeightKg = 0;
+
+      Object.keys(cart).forEach(id => {
+        const q = cart[id];
+        totalCartons += q;
+        totalCbm += q * 0.055;
+        totalWeightKg += q * 9.5;
+      });
+
+      const percent = Math.min(Math.round((totalCbm / maxCbm) * 100), 120);
+
+      document.getElementById('calc-capacity-num').textContent = `${percent}%`;
+      const bar = document.getElementById('calc-capacity-bar');
+      bar.style.width = `${Math.min(percent, 100)}%`;
+      if (percent > 100) {
+        bar.style.background = '#ef4444';
+      } else if (percent >= 80) {
+        bar.style.background = 'linear-gradient(90deg, #0284c7 0%, #10b981 100%)';
+      } else {
+        bar.style.background = 'linear-gradient(90deg, #0284c7 0%, #00f2fe 100%)';
+      }
+
+      const statusEl = document.getElementById('calc-capacity-status');
+      if (totalCartons === 0) {
+        statusEl.textContent = 'Container is empty — Add cartons above to calculate space.';
+        statusEl.style.color = 'var(--text-muted)';
+      } else if (percent > 100) {
+        statusEl.textContent = `Warning: Volume exceeds container capacity by ${(totalCbm - maxCbm).toFixed(1)} CBM. Switch to 40ft HQ.`;
+        statusEl.style.color = '#ef4444';
+      } else if (percent >= 80) {
+        statusEl.textContent = `Optimal load achieved! Maximum freight cost efficiency (${(maxCbm - totalCbm).toFixed(1)} CBM headroom).`;
+        statusEl.style.color = '#10b981';
+      } else {
+        statusEl.textContent = `Space available — ${(maxCbm - totalCbm).toFixed(1)} CBM remaining to fill.`;
+        statusEl.style.color = 'var(--neon-cyan)';
+      }
+
+      document.getElementById('calc-total-cartons').textContent = totalCartons.toLocaleString();
+      document.getElementById('calc-total-cbm').textContent = `${totalCbm.toFixed(1)} / ${maxCbm} CBM`;
+      document.getElementById('calc-total-weight').textContent = `${(totalWeightKg / 1000).toFixed(2)} Tons`;
+
+      const previewList = document.getElementById('calc-preview-list');
+      const activeIds = Object.keys(cart);
+      if (activeIds.length === 0) {
+        previewList.innerHTML = `<span style="font-size: 0.85rem; color: var(--text-muted);">No products currently added.</span>`;
+      } else {
+        previewList.innerHTML = activeIds.map(id => {
+          const item = productsData.find(p => p.id == id);
+          return `
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding: 6px 10px; background: rgba(5, 11, 23, 0.6); border-radius: 6px; margin-bottom: 6px;">
+              <span><strong>${item.code}:</strong> ${item.name}</span>
+              <span style="color: var(--salhy-orange); font-weight: 800;">${cart[id]} Cartons</span>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    function exportContainerToWhatsApp() {
+      const cart = getCart();
+      const is40 = document.getElementById('radio-fcl40')?.classList.contains('selected');
+      const containerName = is40 ? "40ft High-Cube Container (65 CBM)" : "20ft Standard FCL Container (28 CBM)";
+      const activeIds = Object.keys(cart);
+
+      if (activeIds.length === 0) {
+        alert('Please specify carton quantities for the container before exporting the quotation request!');
+        return;
+      }
+
+      let text = `*Mega Medical - El Salhy Group | FCL Quotation Request*\n`;
+      text += `*Selected Container:* ${containerName}\n`;
+      text += `========================================\n`;
+
+      activeIds.forEach((id, index) => {
+        const item = productsData.find(p => p.id == id);
+        text += `${index + 1}. [${item.code}] ${item.name}: ${cart[id]} Cartons\n`;
+      });
+
+      text += `========================================\n`;
+      text += `Please send formal Proforma Invoice with FOB Alexandria/Sokhna and CIF freight rates.`;
+
+      const url = `https://wa.me/201025930930?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      init3DContainerVisualizer();
+      renderCalcRows();
+      updateCalcSummaryView();
+    });
+  </script>
+</body>
+</html>

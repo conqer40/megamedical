@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Official RFQ Center | Mega Medical — El Salhy Group</title>
+  
+  <meta name="description" content="Contact the export sales department of Mega Medical. Request formal proforma invoices, technical data sheets, and CIF shipping schedules.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body dir="ltr">
+
+  <canvas id="ambient-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- Top Commercial Strip -->
+    <div class="top-header-strip">
+      <div class="top-strip-inner">
+        <div class="group-link-badge">
+          <img src="assets/elsalhy_logo.png" alt="El Salhy Group Logo">
+          <span>An Enterprise of <strong>El Salhy Group</strong></span>
+          <span class="tag-legacy">EST. 1983</span>
+          <a href="https://www.elsalhygroup.com" target="_blank" rel="noopener noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Visit Group Portal</span>
+          </a>
+        </div>
+
+        <div class="top-strip-contacts">
+          <a href="mailto:medical@elsalhygroup.com" class="top-strip-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>medical@elsalhygroup.com</span>
+          </a>
+          <a href="https://wa.me/201025930930" target="_blank" class="top-strip-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>WhatsApp: +20 10 25 930 930</span>
+          </a>
+          <button class="sound-toggle-btn" id="sound-toggle">🔊 Sound FX</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Navbar -->
+    <header class="main-navbar">
+      <div class="navbar-inner">
+        <div class="nav-brand-wrap">
+          <a href="index.html">
+            <img src="assets/logo.png" alt="Mega Medical Logo" class="brand-main-logo">
+          </a>
+          <div class="brand-divider"></div>
+          <a href="https://www.elsalhygroup.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/elsalhy_logo.png" alt="El Salhy Group" class="brand-parent-logo">
+          </a>
+        </div>
+
+        <ul class="nav-menu" id="nav-menu-list">
+          <li><a href="index.html" class="nav-item-link">Home</a></li>
+          <li><a href="products.html" class="nav-item-link">Product Catalogue</a></li>
+          <li><a href="calculator.html" class="nav-item-link">FCL Load Simulator<span id="nav-cart-badge" style="color: var(--salhy-orange); font-weight: 800;"></span></a></li>
+          <li><a href="about.html" class="nav-item-link">Why Mega Medical</a></li>
+          <li><a href="terms.html" class="nav-item-link">Commercial Terms</a></li>
+          <li><a href="contact.html" class="nav-item-link active">Contact & RFQ</a></li>
+        </ul>
+
+        <div class="nav-actions-group">
+          <a href="calculator.html" class="btn-nav-calc">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <span>FCL Calculator</span>
+          </a>
+          <button class="nav-mobile-toggle" id="nav-toggle-btn" aria-label="Toggle Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Subpage Hero Banner -->
+    <section class="subpage-hero">
+      <div class="subpage-hero-inner">
+        <span class="badge-tag-cyan">Global Sales & Institutional Tenders</span>
+        <h1 class="subpage-title">Commercial Desk & <span class="gradient-text">RFQ Center</span></h1>
+        <p class="subpage-subtitle">
+          Connect directly with our export logistics specialists for hospital bids, container mix-load optimization, and formal proforma quotations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact & RFQ Dual Layout -->
+    <main class="contact-page-layout">
+      <div class="global-container">
+        
+        <div class="contact-dual-grid">
+
+          <!-- Left Info Panel -->
+          <div class="contact-info-panel">
+            <h2 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 24px;">Commercial Headquarters</h2>
+
+            <div class="contact-method-row">
+              <div class="contact-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Official Corporate Email</div>
+                <a href="mailto:medical@elsalhygroup.com" class="contact-method-val">medical@elsalhygroup.com</a>
+              </div>
+            </div>
+
+            <div class="contact-method-row">
+              <div class="contact-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Direct WhatsApp / Mobile</div>
+                <a href="https://wa.me/201025930930" class="contact-method-val">+20 10 25 930 930</a>
+              </div>
+            </div>
+
+            <div class="contact-method-row">
+              <div class="contact-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Cairo Landline</div>
+                <span class="contact-method-val" style="color: var(--text-silver);">+20 2 2669 1077</span>
+              </div>
+            </div>
+
+            <div class="contact-method-row">
+              <div class="contact-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Physical Address</div>
+                <div class="contact-method-val" style="font-size: 1rem; color: #fff;">S37 City Plaza Mall — Al Shorouq — Cairo, Egypt</div>
+              </div>
+            </div>
+
+            <div class="contact-method-row">
+              <div class="contact-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <div class="contact-method-label">Official Medical Portal</div>
+                <a href="https://medical.elsalhygroup.com" target="_blank" class="contact-method-val">medical.elsalhygroup.com</a>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px;">
+              <span style="font-size: 0.82rem; color: var(--salhy-orange); font-weight: 800;">EL SALHY GROUP CORPORATE BACKING</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+                Direct support from the group's legal, maritime banking, and letter of credit departments ensures complete safety of institutional procurement contracts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right RFQ Form Panel -->
+          <div class="rfq-form-panel">
+            <h2 style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 24px;">Request Formal Quotation</h2>
+
+            <form id="contact-rfq-form">
+              <div class="form-field-group">
+                <div>
+                  <label class="input-label">Full Name</label>
+                  <input type="text" id="rfq-name" class="form-field-input" required placeholder="Dr. / Mr. / Ms...">
+                </div>
+                <div>
+                  <label class="input-label">Hospital / Company Name</label>
+                  <input type="text" id="rfq-company" class="form-field-input" required placeholder="Organization / Agency...">
+                </div>
+              </div>
+
+              <div class="form-field-group">
+                <div>
+                  <label class="input-label">Corporate Email</label>
+                  <input type="email" id="rfq-email" class="form-field-input" required placeholder="procurement@organization.com">
+                </div>
+                <div>
+                  <label class="input-label">WhatsApp / Phone</label>
+                  <input type="tel" id="rfq-phone" class="form-field-input" required placeholder="+CountryCode Number">
+                </div>
+              </div>
+
+              <div class="form-field-full">
+                <label class="input-label">Destination Country & Discharge Seaport</label>
+                <input type="text" id="rfq-country" class="form-field-input" placeholder="e.g. Kenya (Mombasa) / UAE (Jebel Ali) / Italy (Genoa)">
+              </div>
+
+              <div class="form-field-full">
+                <label class="input-label">Targeted Medical Items & Specific Volume Criteria</label>
+                <textarea id="rfq-details" class="form-field-textarea" placeholder="List required products, gauge sizes, carton quantities, or tender bid numbers..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit-inquiry">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span>Dispatch Quotation Request</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Master Footer -->
+    <footer class="master-footer">
+      <div class="global-container">
+        <div class="footer-columns-grid">
+          <div>
+            <img src="assets/logo.png" alt="Mega Medical" class="footer-logo-img">
+            <p class="footer-bio-text">
+              Mega Medical is the specialized medical consumables and export enterprise of El Salhy Group (Established 1983). We deliver medical consumables meeting CE, ISO 13485, and WHO requirements.
+            </p>
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <img src="assets/elsalhy_logo.png" alt="El Salhy Group" style="height: 32px;">
+              <span style="font-size: 0.8rem; color: var(--salhy-orange); font-weight: 800;">EL SALHY GROUP AFFILIATE</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Quick Navigation</h4>
+            <ul class="footer-nav-list">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Product Catalogue (20 Items)</a></li>
+              <li><a href="calculator.html">3D Container Simulator</a></li>
+              <li><a href="about.html">Why Mega Medical</a></li>
+              <li><a href="terms.html">Commercial & Export Terms</a></li>
+              <li><a href="contact.html">Contact & RFQ Center</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Product Divisions</h4>
+            <ul class="footer-nav-list">
+              <li><a href="products.html">Examination & Surgical Gloves</a></li>
+              <li><a href="products.html">Disposable & Insulin Syringes</a></li>
+              <li><a href="products.html">IV Infusion & Blood Transfusion</a></li>
+              <li><a href="products.html">Suction & Urinary Catheters</a></li>
+              <li><a href="products.html">Hemodialysis Lines & Needles</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">El Salhy Sister Companies</h4>
+            <ul class="footer-nav-list">
+              <li><a href="https://elsalhygroup.com/import-trade/" target="_blank">Elsalhy for Import</a></li>
+              <li><a href="https://elsalhygroup.com/megatrade22/" target="_blank">Megatrade</a></li>
+              <li><a href="https://elsalhygroup.com/MegaExport/" target="_blank">MegaExport</a></li>
+              <li><a href="https://elsalhygroup.com/horizon" target="_blank">Horizon</a></li>
+              <li><a href="https://www.elsalhygroup.com" target="_blank">Corporate Portal</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-legal-bar">
+          <div>© 2026 Mega Medical — El Salhy Group. All rights reserved. Official 2026 Export Catalogue.</div>
+          <div>Certified ISO 13485 & CE Medical Devices · Cairo, Egypt</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Dock -->
+    <div class="floating-dock-wrap">
+      <a href="https://wa.me/201025930930" target="_blank" class="dock-action-btn btn-dock-whatsapp" title="WhatsApp Sales Desk">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      </a>
+      <a href="tel:+201025930930" class="dock-action-btn btn-dock-phone" title="Call Cairo Office">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="common.js"></script>
+  <script src="products_data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Auto pre-fill cart items if present
+      const cart = getCart();
+      const activeIds = Object.keys(cart);
+      if (activeIds.length > 0 && typeof productsData !== 'undefined') {
+        const detailsEl = document.getElementById('rfq-details');
+        if (detailsEl && !detailsEl.value) {
+          let prefill = "Selected items for quotation:\n";
+          activeIds.forEach(id => {
+            const item = productsData.find(p => p.id == id);
+            if (item) {
+              prefill += `- [${item.code}] ${item.name}: ${cart[id]} Cartons\n`;
+            }
+          });
+          detailsEl.value = prefill;
+        }
+      }
+
+      const form = document.getElementById('contact-rfq-form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('rfq-name')?.value;
+          const company = document.getElementById('rfq-company')?.value;
+          const email = document.getElementById('rfq-email')?.value;
+          const phone = document.getElementById('rfq-phone')?.value;
+          const country = document.getElementById('rfq-country')?.value;
+          const details = document.getElementById('rfq-details')?.value;
+
+          let msg = `*Mega Medical - Commercial RFQ Submission*\n`;
+          msg += `*Name:* ${name}\n`;
+          msg += `*Organization:* ${company}\n`;
+          msg += `*Email:* ${email}\n`;
+          msg += `*Phone:* ${phone}\n`;
+          msg += `*Port / Destination:* ${country}\n`;
+          msg += `*Details:*\n${details}\n`;
+
+          window.open(`https://wa.me/201025930930?text=${encodeURIComponent(msg)}`, '_blank');
+          alert('Your commercial request has been prepared! Directing you to WhatsApp to connect with our international sales director.');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
