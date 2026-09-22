@@ -3898,5 +3898,153 @@ body :not(.master-footer):not(.btn-primary-neon):not(.btn-nav-calc):not(.btn-sli
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
 }
 
+/* ==========================================================================
+   Container Simulator: Reset Button & Multi-Color Cargo Indicators
+   ========================================================================== */
+.btn-calc-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #e11d48;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
 
+.btn-calc-reset:hover {
+  background: #ffe4e6;
+  border-color: #fda4af;
+  color: #be123c;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.15);
+}
 
+.btn-reset-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all var(--transition-fast);
+}
+
+.btn-reset-secondary:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+  transform: translateY(-1px);
+}
+
+.product-color-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  display: inline-block;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  margin-right: 2px;
+}
+
+/* Authentic WhatsApp Branding in Top Header Strip */
+.top-strip-wa {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-weight: 600 !important;
+}
+
+.top-strip-wa svg {
+  width: 16px !important;
+  height: 16px !important;
+  fill: #25D366 !important;
+  color: #25D366 !important;
+  flex-shrink: 0 !important;
+  filter: drop-shadow(0 1px 2px rgba(37, 211, 102, 0.35));
+}
+
+.top-strip-wa:hover {
+  color: #16a34a !important;
+}
+
+/* ==========================================================================
+   Sister Companies Logo Presentation Cards
+   ========================================================================== */
+.subsidiary-neon-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 24px 20px !important;
+  text-align: center !important;
+}
+
+.subsidiary-logo-box {
+  width: 100%;
+  height: 94px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(11, 26, 48, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.subsidiary-neon-card:hover .subsidiary-logo-box {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(11, 26, 48, 0.08);
+  transform: translateY(-2px);
+}
+
+.subsidiary-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.subsidiary-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 7px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.06);
+  border: 1px solid rgba(2, 132, 199, 0.18);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  align-self: center;
+}
+
+.subsidiary-card-link:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+}
